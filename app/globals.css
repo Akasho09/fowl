@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*{
+    background: rgb(243, 239, 239)
+}
+
+html, body {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Disable vertical scrolling */
+    overscroll-behavior-y: contain; /* Prevent bouncing */
+    height: 100%; /* Ensure the body takes full height */
+
+  }

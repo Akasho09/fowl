@@ -1,55 +1,37 @@
-"use client"
+"use client";
 import { useEffect } from "react";
+import Abc from "../components/mainpage/1";
+import Twoo from "@/components/mainpage/2";
+import RightArrow from "@/components/rightArrow";
+
 export default function Home() {
   useEffect(() => {
-    const handleWheel = (event:any) => {
+    const handleWheel = (event: any) => {
       if (event.deltaY !== 0) {
         window.scrollBy({
-          left: event.deltaY*2,
-          top : 0,
-          behavior: 'smooth' // Smooth scrolling effect
+          left: event.deltaY * 2,
         });
       }
     };
 
-    window.addEventListener('wheel', handleWheel);
+    window.addEventListener("wheel", handleWheel);
 
     return () => {
-      window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener("wheel", handleWheel);
     };
   }, []);
-  
+
   return (
-    <div className="flex w-[115vw] h-[100vh]">
-<div className="w-[10vw] h-[100vh] border-r border-black flex flex-col items-center">
-  {/* Rotated Name Section */}
-  <div className="-rotate-90 h-[30vh] flex items-center justify-center">
-    <div className="text-center font-bold text-gray-800">Akash Ahmad Malik</div>
-  </div>
-
-  {/* Empty Spacer */}
-  <div className="h-[30vh]"></div>
-
-  {/* Scrollable List */}
-  <div className="flex-1 overflow-y-auto">
-    <ul className="space-y-2 p-4">
-      <li className="text-gray-700">a</li>
-      <li className="text-gray-700">b</li>
-      <li className="text-gray-700">c</li>
-      <li className="text-gray-700">b</li>
-      <li className="text-gray-700">n</li>
-      <li className="text-gray-700">y</li>
-      <li className="text-gray-700">j</li>
-      <li className="text-gray-700">m</li>
-    </ul>
-  </div>
-</div>
-
-    <div className="w-[25vw] h-[100vh] shrink-0 bg-blue-200 border border-black">akash</div>
-    <div className="w-[25vw] h-[100vh] shrink-0 bg-blue-200 border border-black">akash</div>
-    <div className="w-[25vw] h-[100vh] shrink-0 bg-blue-200 border border-black">akash</div>
-    <div className="w-[30vw] h-[100vh] shrink-0 bg-blue-200 border border-black">akash</div>
-       </div>
+    <div className="h-screen w-[125vw] grid grid-cols-4 overflow-hidden">
+      <div className="col-span-1 h-full border border-black">
+        <Abc />
+      </div>
+      <div className="col-span-1 h-full border-r border-black">
+        <Twoo />
+      </div>
+      <div className="col-span-2 h-full flex flex-col justify-center items-center">
+        <RightArrow />
+      </div>
+    </div>
   );
 }
-

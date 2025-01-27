@@ -12,7 +12,16 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        roboto: ['"Roboto"', 'sans-serif'],
+        lora: ['"Lora"', 'serif'],
+        custom: ['"CustomFont"', 'monospace'], // Replace with your font name
+        mono: ['"JetBrains Mono"', 'monospace'], // Custom Mono Font
+        montserrat: ['"Montserrat"', 'sans-serif'],
+        regularFont: ['"regularFont"', 'sans-serif'],
+      },
     },
   },
   plugins: [],
 } satisfies Config;
+
