@@ -22,7 +22,8 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) 
+{
   return (
     <html lang="en">
       <body
@@ -32,9 +33,8 @@ export default function RootLayout({
             <Me></Me>
           </div>
           <div className="ml-[5vw] w-[150vw] h-screen flex">
-            <NavBar></NavBar>
+           <div className="w-[20vw] flex shrink-0"> <NavBar></NavBar></div>
             {children}
-          
           </div>
       </body>
     </html>
