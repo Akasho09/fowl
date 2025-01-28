@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 *{
-    background: rgb(221, 222, 227)
+    background: rgb(230 231 232)
 }
-/* 
+
 
 html, body {
     overflow-x:  scroll;
     overflow-y: hidden;
     height: 100%;
-  } */
+  }

@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/navs";
 import Me from "@/components/mySelf";
+<style>
+</style>
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -26,15 +28,17 @@ export default function RootLayout({
 {
   return (
     <html lang="en">
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-          <div className="fixed left-0 h-screen w-[5vw] border border-black">
+        
+         <div className="fixed left-0 h-screen sm:w-[5vw]">
             <Me></Me>
           </div>
-          <div className="ml-[5vw] w-[150vw] h-screen flex">
-           <div className="w-[20vw] flex shrink-0"> <NavBar></NavBar></div>
-            {children}
+          <div className="ml-[5vw] h-screen flex ">
+           <div className="hidden md:flex justify-center md:w-[20vw] border-x border-black"><NavBar></NavBar></div>
+        <div className="flex-grow">{children}</div>
           </div>
       </body>
     </html>

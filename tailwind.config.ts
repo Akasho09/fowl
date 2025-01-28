@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-
 export default {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -19,9 +18,12 @@ export default {
         mono: ['"JetBrains Mono"', 'monospace'], // Custom Mono Font
         montserrat: ['"Montserrat"', 'sans-serif'],
         regularFont: ['"regularFont"', 'sans-serif'],
+        Rampart: ["Rampart One", "cursive"],
+        macondo: ["Macondo Swash Caps", "cursive"],
+        griffy: ["Griffy", "cursive"], // Custom font
+        sp:["Special Elite", "serif"]
       },
     },
   },
   plugins: [],
 } satisfies Config;
-

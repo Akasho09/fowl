@@ -1,4 +1,4 @@
-
+import NavBar from "../navs"
 interface t{
    t1 : string ,
    t2 : string ,
@@ -7,9 +7,10 @@ interface t{
 
 export default function TwoTexts( {t1,t2,t3}: t){
 
-    return <div className=" h-full flex flex-col items-center justify-around mx-8">
-        <div className=""> <p className="text-xl font-mono hover:text-red-600">{t1}</p>
-    <p className="text-lg font-bold font-mono text-red-600">{t2}</p></div>
-  <div> <p className="text-xl font-mono">{t3}</p></div>
+    return <div className="h-full flex flex-col justify-around mx-8">
+  <div className=""> <p className="md:text-xl text-sm font-mono hover:text-red-600  ">{t1}</p>
+    <p className="md:text-lg text-sm font-semibold font-mono text-red-600">{t2}</p></div>
+   <div  className="md:hidden flex justify-center"><NavBar></NavBar></div>
+  <div> <p className="md:text-xl text-sm font-mono">{t3}</p></div>
     </div> 
 }
