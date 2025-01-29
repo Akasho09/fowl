@@ -21,8 +21,25 @@ export default {
         Rampart: ["Rampart One", "cursive"],
         macondo: ["Macondo Swash Caps", "cursive"],
         griffy: ["Griffy", "cursive"], // Custom font
-        sp:["Special Elite", "serif"]
+        sp:["Special Elite", "serif"],
+        nova: ["Nova Oval", "serif"]
       },
+      // tailwind.config.js
+      keyframes: {
+        'bounce-x': {
+          '0%, 100%': {
+            transform: 'translateX(-25%)',
+            animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)',
+          },
+          '50%': {
+            transform: 'translateX(0)',
+            animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)',
+          },
+        },
+      },
+      animation: {
+        'bounce-x': 'bounce-x 1s infinite',
+}
     },
   },
   plugins: [],

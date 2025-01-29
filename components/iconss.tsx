@@ -1,12 +1,12 @@
 import { FaLinkedin, FaTwitter, FaGithub, FaInstagram, FaEnvelope } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
-
+import { FaPhone } from "react-icons/fa6";
 const SocialLinks = () => {
   return (
     <div className="absolute bottom-8 left-8 flex flex-col gap-4 text-lg">
       {/* LinkedIn */}
       <a
-        href="https://linkedin.com"
+        href="https://www.linkedin.com/in/akash786/"
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center gap-2 hover:text-blue-500"
@@ -14,19 +14,9 @@ const SocialLinks = () => {
         <FaLinkedin className="text-xl" />
       </a>
 
-      {/* Twitter */}
-      <a
-        href="https://twitter.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-2 hover:text-blue-400"
-      >
-        <FaTwitter className="text-xl" />
-      </a>
-
       {/* LeetCode */}
       <a
-        href="https://leetcode.com"
+        href="https://leetcode.com/u/aakashbwd/"
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center gap-2 hover:text-yellow-500"
@@ -36,7 +26,7 @@ const SocialLinks = () => {
 
       {/* GitHub */}
       <a
-        href="https://github.com"
+        href="https://github.com/Akasho09"
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center gap-2 hover:text-gray-600"
@@ -46,7 +36,7 @@ const SocialLinks = () => {
 
       {/* Instagram */}
       <a
-        href="https://instagram.com"
+        href="https://www.instagram.com/akash.o.9/"
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center gap-2 hover:text-pink-500"
@@ -54,13 +44,18 @@ const SocialLinks = () => {
         <FaInstagram className="text-xl" />
       </a>
 
-      {/* Gmail */}
+      <a href="tel:+919103597816">
+  <FaPhone className="text-xl"></FaPhone>
+</a>
+
       <a
-        href="mailto:your-email@gmail.com"
+        href="mailto:aakashbwd@gmail.com"
         className="flex items-center gap-2 hover:text-red-500"
       >
         <FaEnvelope className="text-xl" />
       </a>
+
+
     </div>
   );
 };

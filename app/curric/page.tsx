@@ -3,26 +3,12 @@ import RightArrow from "@/components/rightArrow"
 import Layout from "@/components/layyy"
 export default function () {
 
-return <Layout><div className="h-screen w-[200vw] grid grid-cols-8">
-          <div className="col-span-1 h-full border-l border-black">
-<ThreeTexts t1="EXTRA CURRICULAR" t2="d1" t3="HTML  ...."></ThreeTexts>
+return <Layout><div className="h-screen md:w-[100vw] grid grid-cols-4">
+          <div className="col-span-4 md:col-span-1 h-full border-r border-black">
+<ThreeTexts t1="Cricket Team Member (Runner-Up) - Inter-Departmental Cricket Tournament" t2="" t3=""></ThreeTexts>
 </div>
-<div className="col-span-1 h-full">
-<ThreeTexts t1="..." t2="d2" t3="skill"></ThreeTexts>
-</div>      
-    <div className="col-span-1 h-full">
-<ThreeTexts t1="p1" t2="d3" t3="s3"></ThreeTexts>
-</div>
-<div className="col-span-1 h-full border-black">
-<ThreeTexts t1="p1" t2="d1" t3="skills used "></ThreeTexts>
-</div>
-<div className="col-span-1 h-full">
-<ThreeTexts t1="p1" t2="d2" t3="skill"></ThreeTexts>
-</div>      
-    <div className="col-span-1 h-full">
-<ThreeTexts t1="p1" t2="d3" t3="s3"></ThreeTexts>
-</div>
- <div className="col-span-2 h-full flex flex-col justify-center items-center">
+
+ <div className="col-span-3 h-full flex flex-col justify-center items-center hidden md:flex ">
             <RightArrow  linkk="/extras" />
           </div>
 </div> 

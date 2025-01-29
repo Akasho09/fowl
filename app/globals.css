@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Griffy&family=Macondo+Swash+Caps&family=Metamorphous&family=Nova+Oval&family=Special+Elite&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,8 +8,8 @@
 }
 
 
-html, body {
+/* html, body {
     overflow-x:  scroll;
     overflow-y: hidden;
     height: 100%;
-  }
+  } */
