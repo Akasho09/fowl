@@ -1,7 +1,7 @@
 import ThreeTexts from "@/components/mainpage/threeText"
 import RightArrow from "@/components/rightArrow"
 import Layout from "@/components/layyy"
-export default function () {
+export default function A() {
 
 return <Layout><div className="h-screen md:w-[100vw] grid grid-cols-4">
           <div className="col-span-4 md:col-span-1 h-full border-r border-black">

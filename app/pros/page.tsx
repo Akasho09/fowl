@@ -32,7 +32,7 @@ management.</li>
 </div>
 
 
-export default function () {
+export default function A() {
 
 return <Layout><div className="h-screen md:w-[100vw] grid grid-cols-4 flex sm:flex-col">
 

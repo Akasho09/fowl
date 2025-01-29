@@ -9,7 +9,7 @@ const data = <div>
 </div>
 
 
-export default function() {
+export default function A() {
     return  <Layout> <div className="h-screen md:w-[160vw] grid grid-cols-6 flex sm:flex-col">
 
 <div className="col-span-6 md:col-span-1 h-full border-r border-black">
