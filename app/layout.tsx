@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/navs";
 import Me from "@/components/mySelf";
+import Head from "next/head";
 <style>
 </style>
 const geistSans = Geist({
@@ -18,6 +19,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Akash Ahmad Malik",
   description: "Hey There!",
+  icons: {
+    icon: "/image.png", // or PNG/SVG format
+  }
 };
 
 export default function RootLayout({
@@ -28,11 +32,13 @@ export default function RootLayout({
 {
   return (
     <html lang="en">
-
+         <Head>
+          {/* <link rel="shortcut icon" href={favicon} /> */}
+          <link rel="shortcut icon" href="/image.png" />
+        </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        
          <div className="fixed left-0 h-screen sm:w-[5vw]">
             <Me></Me>
           </div>

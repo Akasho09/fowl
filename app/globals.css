@@ -7,6 +7,11 @@
     background: rgb(230 231 232)
 }
 
+body {
+    transform: scale(0.95);
+    transform-origin: top left; 
+  }
+
 
 /* html, body {
     overflow-x:  scroll;
