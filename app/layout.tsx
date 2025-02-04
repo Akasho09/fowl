@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: "Akash Ahmad Malik",
   description: "Hey There!",
   icons: {
-    icon: "/image.png", // or PNG/SVG format
+    icon: "/image.png",
   }
 };
 
@@ -37,14 +37,14 @@ export default function RootLayout({
           <link rel="shortcut icon" href="/image.png" />
         </Head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased font-thin`}
       >
          <div className="fixed left-0 h-screen sm:w-[5vw]">
             <Me></Me>
           </div>
           <div className="ml-[5vw] h-screen flex ">
            <div className="hidden md:flex justify-center md:w-[20vw] border-x border-black"><NavBar></NavBar></div>
-        <div className="flex-grow">{children}</div>
+        <div className="flex-grow">{children}</div> 
           </div>
       </body>
     </html>

@@ -1,6 +1,7 @@
 import { FaLinkedin, FaGithub, FaInstagram, FaEnvelope } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import { FaPhone } from "react-icons/fa6";
+
 const SocialLinks = () => {
   return (
     <div className="absolute bottom-8 left-8 flex flex-col gap-4 text-lg">
@@ -54,8 +55,6 @@ const SocialLinks = () => {
       >
         <FaEnvelope className="text-xl" />
       </a>
-
-
     </div>
   );
 };
