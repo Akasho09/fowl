@@ -43,9 +43,12 @@ export default function RootLayout({
             <Me></Me>
           </div>
           <div className="ml-[5vw] h-screen flex ">
-           <div className="hidden md:flex justify-center md:w-[20vw] border-x border-black"><NavBar></NavBar></div>
-        <div className="flex-grow">{children}</div> 
-          </div>
+  <div className="hidden md:flex justify-center md:w-[80vw] border-x border-black">
+    <NavBar></NavBar>
+  </div>
+  <div className="flex-grow">{children}</div> 
+</div>
+
       </body>
     </html>
   );

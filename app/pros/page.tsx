@@ -38,24 +38,24 @@ return <Layout><div className="h-screen md:w-[100vw] grid grid-cols-4 flex sm:fl
 
 
 <div className="col-span-4 md:col-span-1 h-full border-r border-black">
-<ThreeTexts t1="MediumPro" t2={data2}
-  t4="Dec 2024 - Jan 2025" 
-  techs={["TypeScript" ,"Prisma" , "PostgreSQL" , "Hono" , "React" , "Tailwind" , "Cloudflare"]}
-  links={[{l1:"https://github.com/Akasho09/MediumPro" ,  l2:"Github"} , {l1:"https://medium-pro-ruby.vercel.app/" , l2: "Deployment"}]}
+<ThreeTexts t1="MediumPro" t2={"Dec 2024 - Jan 2025"}
+  t3={data2}
+  techs={["🛠️ 📘 TypeScript" ,"💎 ⚙️ Prisma: " , "🐘 💾 PostgreSQL" , "⚡ 🚀 Hono" , " ⚛️ 💠 React" , "🌊 🌀 Tailwind" , "☁️ 🔥 Cloudflare"]}
+  links={[{l1:"https://github.com/Akasho09/MediumPro" ,  l2:"⚙️ Github"} , {l1:"https://medium-pro-ruby.vercel.app/" , l2: "☁️ Deployment"}]}
 ></ThreeTexts>
 </div>
 
 <div className="col-span-1 h-full border-r border-black hidden md:flex">
 <ThreeTexts
   t1="College Based DataBase Management System Project"
-  t2={data}
-  t4="Aug 2023 - Dec 2023" 
-  techs={["Express" , "MongoDB" , "React"]}
-  links={[{l1:"https://github.com/Akasho09/p24" ,  l2:"Github"}]}
+  t2="Aug 2023 - Dec 2023"
+  t3={data}
+  techs={["⚙️ 🚂 Express" , "🍃 🛢️ MongoDB" , "⚛️ 💠 React"]}
+  links={[{l1:"https://github.com/Akasho09/p24" ,  l2:"⚙️ Github"}]}
 />
 </div>
 
-<div className="col-span-2 h-full flex flex-col justify-center items-center hidden md:flex">
+<div className="col-span-1 h-full flex flex-col justify-center items-center hidden md:flex">
   <RightArrow  linkk="/skill" />
 </div>
 </div> 
