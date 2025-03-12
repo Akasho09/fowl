@@ -3,7 +3,7 @@ import ThreeTexts from "@/components/mainpage/threeText"
 import RightArrow from "@/components/rightArrow"
 import Image from "next/image";
 export default function A() {
-return <Layout><div className="h-screen md:w-[100vw] grid grid-cols-4">
+return <Layout><div className="h-screen md:w-[90vw] grid grid-cols-4">
           <div className="col-span-4 md:col-span-1 h-full border-r border-black">
 <ThreeTexts t1="Extras" t2="" t3=""></ThreeTexts>
 

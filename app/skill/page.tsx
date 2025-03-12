@@ -10,7 +10,7 @@ import { soft } from "@/components/skills/soft"
 export default function A() {
 
 return <Layout>
-<div className="h-screen md:w-[200vw] grid grid-cols-8  flex sm:flex-col">
+<div className="h-screen md:w-[180vw] grid grid-cols-8  flex sm:flex-col">
 <div className="col-span-8 md:col-span-1 h-full border-r border-black">
 <ThreeTexts t1="🖥️ Programming Languages" t4={Langs}></ThreeTexts>
 </div>

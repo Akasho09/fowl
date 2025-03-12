@@ -23,7 +23,10 @@ export default {
         macondo: ["Macondo Swash Caps", "cursive"],
         griffy: ["Griffy", "cursive"], // Custom font
         sp:["Special Elite", "serif"],
-        nova: ["Nova Oval", "serif"]
+        nova: ["Nova Oval", "serif"],
+        neuton : ["Neuton"  , "serif"],
+        iansui  : ["Iansui" , "serif"],
+        instru: ["Instrument Serif" , "serif"]
       },
       // tailwind.config.js
       keyframes: {

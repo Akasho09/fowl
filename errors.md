@@ -17,3 +17,7 @@ Accessing the router before the component is mounted: If you try to access the r
 
 ./components/navs.tsx
 9:117  Error: Do not use an `<a>` element to navigate to `/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+
+
+## add fonts 
+> uodate import in global.css
