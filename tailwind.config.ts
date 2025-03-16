@@ -15,13 +15,13 @@ export default {
       fontFamily: {
         roboto: ['"Roboto"', 'sans-serif'],
         lora: ['"Lora"', 'serif'],
-        custom: ['"CustomFont"', 'monospace'], // Replace with your font name
-        mono: ['"JetBrains Mono"', 'monospace'], // Custom Mono Font
+        custom: ['"CustomFont"', 'monospace'], 
+        mono: ['"JetBrains Mono"', 'monospace'], 
         montserrat: ['"Montserrat"', 'sans-serif'],
         regularFont: ['"regularFont"', 'sans-serif'],
         Rampart: ["Rampart One", "cursive"],
         macondo: ["Macondo Swash Caps", "cursive"],
-        griffy: ["Griffy", "cursive"], // Custom font
+        griffy: ["Griffy", "cursive"],
         sp:["Special Elite", "serif"],
         nova: ["Nova Oval", "serif"],
         neuton : ["Neuton"  , "serif"],
