@@ -25,7 +25,7 @@ const PlanetOrbit = () => {
     <div
       key={i}
       className={`absolute rounded-full ${planet.orbitH} ${planet.orbitW} animate-${planet.duration}
-        border border-zinc-400/30 dark:white/10 backdrop-blur-[.2px] opacity-30`}
+         border backdrop-blur-[.2px] opacity-5`}
       >
       <div
         className={`absolute top-1/2 left-full transform -translate-x-1/2 -translate-y-1/2 

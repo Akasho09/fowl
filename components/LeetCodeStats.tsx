@@ -1,5 +1,4 @@
-// components/LeetCodeStats.tsx
-import React from "react";
+import React, { memo, useMemo } from "react";
 
 type Props = {
   solved: number;
@@ -13,7 +12,10 @@ type Props = {
   attempting: number;
 };
 
-export default function LeetCodeStats({
+const safeDivide = (numerator: number, denominator: number) =>
+  denominator === 0 ? 0 : (numerator / denominator) * 100;
+
+const LeetCodeStatsCombined = ({
   solved,
   total,
   easySolved,
@@ -23,55 +25,134 @@ export default function LeetCodeStats({
   hardSolved,
   hardTotal,
   attempting,
-}: Props) {
-  const easyPercent = (easyTotal / total) * 100;
-  const mediumPercent = (mediumTotal / total) * 100;
-  const hardPercent = (hardTotal / total) * 100;
+}: Props) => {
+  const solvedSegments = useMemo(
+    () => [
+      {
+        level: "Easy",
+        solved: easySolved,
+        total: easyTotal,
+        color: "#3b82f6", // blue
+      },
+      {
+        level: "Medium",
+        solved: mediumSolved,
+        total: mediumTotal,
+        color: "#eab308", // yellow
+      },
+      {
+        level: "Hard",
+        solved: hardSolved,
+        total: hardTotal,
+        color: "#ef4444", // red
+      },
+    ],
+    [easySolved, easyTotal, mediumSolved, mediumTotal, hardSolved, hardTotal]
+  );
+
+  // Compute segment percentages
+  const easyPercent = safeDivide(easyTotal, total);
+  const mediumPercent = safeDivide(mediumTotal, total);
+  const hardPercent = safeDivide(hardTotal, total);
 
   const easyEnd = easyPercent;
   const mediumEnd = easyEnd + mediumPercent;
   const hardEnd = mediumEnd + hardPercent;
 
+  let currentCumulativeWidth = 0;
+
   return (
-    <div className="bg-[#ebfffe] text-black p-4 md:p-6 rounded-2xl flex flex-col sm:flex-row gap-6 items-center shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200 w-full max-w-3xl mx-auto">
-      
-      {/* Multi-colored Circular Chart */}
-      <div className="relative w-28 h-28 sm:w-36 sm:h-36 flex-shrink-0">
+    <div className="w-full max-w-lg mx-auto flex flex-col gap-6 p-5 border border-x-0 shadow-lg">
+      {/* Header */}
+      <div className="flex justify-between items-end border-b pb-3">
+        <span className="text-md font-semibold text-gray-700">
+          Problems Solved
+        </span>
+        <span className="text-3xl font-bold text-gray-900">
+          {solved}
+          <span className="text-sm font-medium text-gray-500">/{total}</span>
+        </span>
+      </div>
+
+      {/* --- Rectangular Progress Bar --- */}
+      <div className="relative w-full h-2 rounded-full bg-gray-200 overflow-hidden">
+        {solvedSegments.map(({ level, solved: catSolved, color }) => {
+          const segmentWidth = safeDivide(catSolved, total);
+          const startOffset = currentCumulativeWidth;
+          currentCumulativeWidth += segmentWidth;
+
+          return (
+            <div
+              key={level}
+              className="absolute h-full transition-all duration-500"
+              style={{
+                width: `${segmentWidth}%`,
+                left: `${startOffset}%`,
+                backgroundColor: color,
+              }}
+              title={`${level}: ${catSolved} solved (${segmentWidth.toFixed(
+                1
+              )}%)`}
+            />
+          );
+        })}
+      </div>
+
+      {/* --- Breakdown --- */}
+      <div className="flex flex-col gap-2 pt-2">
+        {solvedSegments.map(({ level, solved, color }) => {
+          const percent = safeDivide(solved, total).toFixed(1);
+          return (
+            <div
+              key={level}
+              className="text-sm flex justify-between items-center px-2"
+            >
+              <span
+                className="font-semibold flex items-center gap-2"
+                style={{ color }}
+              >
+                <span
+                  className="w-3 h-3 rounded-full"
+                  style={{ backgroundColor: color }}
+                ></span>
+                {level}
+              </span>
+              <span className="text-gray-700 font-medium">
+                {solved}
+                <span className="text-gray-400 text-xs font-normal ml-1">
+                  ({percent}%)
+                </span>
+              </span>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* --- Circular Chart --- */}
+      <div className="relative w-36 h-36 mx-auto mt-4">
         <div
-          className="absolute inset-1 rounded-full shadow-inner"
+          className="absolute inset-0 rounded-full shadow-inner"
           style={{
             background: `conic-gradient(
-              #3b82f6 0% ${easyEnd}%,     
-              #eab308 ${easyEnd}% ${mediumEnd}%, 
-              #ef4444 ${mediumEnd}% ${hardEnd}%
+              ${solvedSegments[0].color} 0% ${easyEnd}%,
+              ${solvedSegments[1].color} ${easyEnd}% ${mediumEnd}%,
+              ${solvedSegments[2].color} ${mediumEnd}% ${hardEnd}%
             )`,
           }}
         ></div>
-        <div className="absolute inset-[5px] sm:inset-[6px] bg-[#ebfffe] rounded-full flex flex-col justify-center items-center shadow-md">
-          <span className="text-xl sm:text-2xl font-bold">
+        <div className="absolute inset-[6px] bg-[#f9fafb] rounded-full flex flex-col justify-center items-center shadow-md">
+          <span className="text-lg font-bold">
             {solved}
-            <span className="text-gray-400 font-normal text-xs sm:text-sm">/{total}</span>
+            <span className="text-sm text-gray-500">/{total}</span>
           </span>
-          <span className="text-green-500 text-xs sm:text-sm">Solved</span>
-          <span className="text-gray-500 text-[10px] sm:text-xs">{attempting} Attempting</span>
-        </div>
-      </div>
-
-      {/* Difficulty Breakdown */}
-      <div className="flex flex-col gap-3 w-full">
-        <div className="px-3 py-2 sm:px-4 rounded-md flex justify-between items-center shadow-sm border border-gray-100">
-          <span className="text-blue-500 font-semibold">Easy</span>
-          <span className="text-sm ">{easySolved}/{easyTotal}</span>
-        </div>
-        <div className="px-3 py-2 sm:px-4 rounded-md flex justify-between items-center shadow-sm border border-gray-100">
-          <span className="text-yellow-500 font-semibold">Med.</span>
-          <span className="text-sm ">{mediumSolved}/{mediumTotal}</span>
-        </div>
-        <div className="px-3 py-2 sm:px-4 rounded-md flex justify-between items-center shadow-sm border border-gray-100">
-          <span className="text-red-500 font-semibold">Hard</span>
-          <span className="text-sm ">{hardSolved}/{hardTotal}</span>
+          <span className="text-xs text-gray-500">Solved</span>
+          <span className="text-[10px] text-gray-400">
+            {attempting} Attempting
+          </span>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default memo(LeetCodeStatsCombined);

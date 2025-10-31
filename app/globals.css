@@ -1,30 +1,105 @@
-@import url('https://fonts.googleapis.com/css2?family=Iansui&family=Macondo&family=Macondo+Swash+Caps&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body { 
- height: 100%; overflow:hidden;
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --border-color: #000000;
+  --ball-bg: #000;
 }
 
+body {
+  height: 100%; 
+  overflow:hidden;
+  background-color: var(--bg-color);
+}
+
+body, .theme * {
+  color: var(--text-color);
+  border-color: var(--border-color);
+  transition: background-color 0.5s, color 0.5s, border-color 0.5s;
+}
+
+.theme-light {
+  --bg-color: #ffffff;      /* Soft neutral background */
+  --text-color: #000000;    /* Deep blue text */
+  --border-color: #000000;  /* Soft border */
+  --ball-bg: #000000;       /* Highlight/planet color */
+}
+
+/* Blue Theme */
+.theme-blue {
+  --bg-color: #65635f;      /* Light sky/blue background */
+  --text-color: #a4b2c2;    /* Deep blue text for contrast */
+  --border-color: #5680aa;  /* Blue accent borders */
+  --ball-bg: #54a2ae;       /* Deep blue highlights */
+}
+
+/* Green Theme */
+.theme-green {
+  --bg-color: #a1d1914c;      /* Soft beige/greenish background */
+  --text-color: #d611ccb6;    /* Deep green text */
+  --border-color: #d33434;  /* Green accent borders */
+  --ball-bg: rgb(4, 120, 87);       /* Green highlights */
+}
+
+/* Pink Theme */
+.theme-pink {
+  --bg-color: #89f1ff;      /* Soft pink background */
+  --text-color: #181313;    /* Dark rose text */
+  --border-color: #000000;  /* Pink accent borders */
+  --ball-bg: #3d383a;       /* Pink highlights */
+} 
+
+/* Dark Theme */
+.theme-dark {
+  --bg-color: #030303;      /* Near-black background */
+  --text-color: #F1EFEC;    /* Light neutral text */
+  --border-color: #ffffff;  /* Gray accent borders */
+  --ball-bg: #F1EFEC;       /* Light highlights */
+  --img-filter: brightness(0) invert(1);
+}
+/* Firefox */
 .small-scrollbar {
-  scrollbar-color: #acc6fb transparent;
-  scrollbar-width: thin;
-  scrollbar-gutter: stable both-edges; /* Applied to the container */
-  border-radius: 8px;
+  scrollbar-width: thin; /* thin scrollbar */
+  scrollbar-color: #acc6fb transparent; /* thumb color, track color */
 }
 
+/* Chrome, Edge, Safari */
 .small-scrollbar::-webkit-scrollbar {
-  width: 6px;
-  height: 4px;
+  width: 4px;  /* thin width */
+  height: 4px; /* horizontal scrollbar */
 }
 
-.new-scrollbar::-webkit-scrollbar {
-  width: 6px; /* Width of the scrollbar */
-  height: 6px; /* Height for horizontal scrollbar */
+.small-scrollbar::-webkit-scrollbar-track {
+  background: transparent; /* track color */
 }
 
-.new-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #acc6fb; /* Gray-500 */
-  border-radius: 12px;
+.small-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #acc6fb; /* thumb color */
+  border-radius: 10px;       /* rounded corners */
+  border: 1px solid transparent; /* optional padding */
+}
+
+/* Optional: hover effect */
+.small-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #7fa8f3;
+}
+
+@keyframes bounce-ball {
+  0%, 100% {
+    top: 0px; /* bottom of top image */
+    animation-timing-function: ease-in;
+  }
+  50% {
+    top: calc(100dvh - 614px);
+    animation-timing-function: ease-out;
+  }
+}
+
+.animate-bounce-ball {
+  position: absolute;
+  animation: bounce-ball 3s infinite;
 }

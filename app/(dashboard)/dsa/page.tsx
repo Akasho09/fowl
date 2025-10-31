@@ -1,10 +1,8 @@
 'use client';
-
 import { useEffect, useState } from 'react';
 import ThreeTexts from '@/components/mainpage/threeText';
-
 import LeetCodeStats from "@/components/LeetCodeStats";
-
+// import GitHubPortfolio from '@/components/git';
 
 type LeetCodeProfile = {
   username: string;
@@ -41,7 +39,8 @@ export default function Page() {
   const hardSolved = profile?.submitStats?.acSubmissionNum?.find(d => d.difficulty === 'Hard')?.count || 0;
 
   return (
-    <div className="h-screen flex ">
+    <div className="h-screen flex overflow-y-auto">
+    <div className="h-screen border-r w-[92vw] md:w-[20rem]">
       <ThreeTexts
         t1="LeetCode Profile:"
         t2={
@@ -68,8 +67,11 @@ export default function Page() {
         </LeetCodeStats></div>
           }
       />
+    </div>
+    <div className="h-screen border-r w-[92vw] md:w-[20rem]">
 
-      <ThreeTexts t1="Competitive Programming:" t2="Codeforces, GFG, etc." />
+      <ThreeTexts t1="CodeForces , GFGs etc :" t2="" />
+    </div>
     </div>
   );
 }

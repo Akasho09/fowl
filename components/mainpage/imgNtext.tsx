@@ -11,10 +11,10 @@ interface InfoCardProps {
 
 export default function InfoCard({ img, txt, txt2, txt3, txt4 , txt5 }: InfoCardProps) {
   return (
-    <div className="overflow-y-auto small-scrollbar w-[94.8vw] md:w-[28rem]  md:border border-black rounded-lg md:m-4 dark:border-white md:text-sm/6 text-sm tracking-wide relative transition-colors duration-300">
-      <div className="h-full flex flex-col justify-between py-16 md:px-6 px-2 relative z-10 text-wrap">
+    <div className="h-screen overflow-y-auto overflow-x-auto small-scrollbar w-[95vw] md:w-[20rem] md:text-sm/6 text-sm tracking-wide relative transition-colors duration-300">
+      <div className="h-full flex flex-col justify-between py-16 px-2 relative z-10 text-wrap">
 
-      <p className="flex md:text-lg font-macondo font-bold dark:text-cyan-100 hover:text-red-700 dark:hover:text-red-400 border-b-2 border-blue-300 pb-1 w-fit">
+      <p className="flex md:text-md font-bold !text-red-700 pb-1 w-fit">
             {txt}
       </p>
 
@@ -25,34 +25,28 @@ export default function InfoCard({ img, txt, txt2, txt3, txt4 , txt5 }: InfoCard
             height={200}
             alt="Profile Image"
             quality={100}
-            className="rounded-full object-cover transition-transform duration-500 hover:scale-110"
+            className="rounded-full object-cover !transition-transform duration-500 hover:scale-110"
           />
          }
-          <p className="shrink text-gray-900 text-sm font-iansui">{txt2}</p>
+          <p className="shrink text-xs">{txt2}</p>
 
         </div>
         <div>
-        <p className="text-gray-900  leading-relaxed font-iansui">{txt3}</p>
+        <p className=" leading-relaxed text-xs ">{txt3}</p>
         </div>
 
 
         <div className="">
           {txt4 && (
-            <p className="text-gray-900  leading-relaxed font-iansui">{txt4}</p>
+            <p className="leading-relaxed text-xs ">{txt4}</p>
           )}
         </div>
 
 
         <div>
-        <p className="text-gray-900  leading-relaxed font-iansui">{txt5}</p>
-        </div>
-        {/* <div className="">
-          {txt5 && (
-            <p className="text-gray-900  leading-relaxed font-iansui">{txt5}</p>
-          )}
-        </div> */}
+        <p className=" leading-relaxed text-xs ">{txt5}</p>
+        </div> 
           </div>
         </div>
-
   );
 }

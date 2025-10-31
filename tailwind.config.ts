@@ -1,22 +1,28 @@
 import type { Config } from "tailwindcss";
+
 export default {
-  darkMode: 'class', // disabed dark mode for now
+  darkMode: 'class', // Enable class-based dark mode
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx}", // App Router
+    "./components/**/*.{js,ts,jsx,tsx}", // Components
+    "./lib/**/*.{js,ts,jsx,tsx}", // Custom utilities
+    "!./node_modules/**/*", // Exclude node_modules
   ],
   theme: {
     extend: {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-      } ,
-      fontFamily: {
-        macondo: ["Macondo Swash Caps", "cursive"],
-        iansui  : ["Iansui" , "serif"],
+        primary: {
+          500: "#2563eb",
+          600: "#1d4ed8",
+        },
+        accent: "#10b981",
       },
-      // tailwind.config.js
+      fontFamily: {
+        kodeMono: ['var(--font-kodemono)', 'monospace'],
+        jetB: ['jetB', 'monospace'],
+      },
       keyframes: {
         'bounce-x': {
           '0%, 100%': {
@@ -28,12 +34,15 @@ export default {
             animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)',
           },
         },
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
       },
       animation: {
         'bounce-x': 'bounce-x 1s infinite',
-},
-
+        'fade-in': 'fade-in 0.5s ease-out',
+      },
     },
-  },
-  plugins: [],
+  }
 } satisfies Config;

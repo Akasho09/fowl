@@ -3,6 +3,7 @@ import { usePathname } from 'next/navigation'
 import RightArrow from './rightArrow'
 import Link from 'next/link'
 import { useState } from 'react'
+import { HiMenu, HiX } from "react-icons/hi";
 
 const navs = [
     { nav: "Home", route: "/", color: "bg-red-300" },
@@ -10,7 +11,7 @@ const navs = [
     { nav: "Education", route: "/ed", color: "bg-green-300" },
     { nav: "Projects", route: "/pros", color: "bg-yellow-300" },
     { nav: "Skills", route: "/skills", color: "bg-purple-300" },
-    { nav : "DSA" ,  route: "/dsa" , } ,
+    { nav : "DSA" ,  route: "/dsa" , color: "bg-slate-300" } ,
     { nav: "Experience", route: "/exp", color: "bg-pink-300" },
     { nav: "Extra Curriculars", route: "/curric", color: "bg-orange-300" },
     { nav: "Extras", route: "/extras", color: "bg-teal-300" }
@@ -22,41 +23,35 @@ export default function NavBar() {
 
   return (
     <>
-    
-          {/* Mobile hamburger button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className={`md:hidden fixed bottom-4 right-4 text-xl p-3 rounded-full shadow-lg z-50`}
-        aria-label="Toggle navigation"
-      >
-     ☰
-      </button>
+    <button
+      onClick={() => setIsOpen(!isOpen)}
+      aria-label="Toggle navigation"
+      className="md:hidden fixed bottom-6 right-6 p-4 border rounded-full shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 z-50"
+    >
+      {isOpen ? <HiX size={22} /> : <HiMenu size={22} />}
+    </button>
 
-      {/* Mobile nav */}
       {isOpen && (
-        <div className="bg-[#ebfffe] md:hidden fixed bottom-20 right-4 border border-black dark:border-white rounded-lg p-4 w-64 shadow-lg z-40">
+        <div className="md:hidden fixed bottom-20 right-4 rounded-lg p-4 w-64 shadow-lg z-40 text-xs bg-[var(--bg-color)]/80 backdrop-blur-sm">
           {navs.map((n, i) => {
-            const isActive = pathname === n.route;
             return (
               <Link
                 href={n.route}
                 key={i}
-                onClick={() => setIsOpen(false)} // close menu on click
+                onClick={() => setIsOpen(false)}
               >
                 <div className="flex items-center py-2">
                   <div
-                    className={`w-5 h-5 flex items-center justify-center mr-3 font-bold text-xs ${n.color} border border-black`}
+                    className={`w-5 h-5 flex items-center justify-center mr-3 font-bold ${n.color} border`}
                   >
                     {i + 1}
                   </div>
                   <span
-                    className={`font-semibold text-sm ${
-                      isActive
-                        ? 'text-red-500'
-                        : 'text-black dark:text-white hover:text-red-500'
+                    className={`font-semibold  ${
+                    pathname === n.route ? '!text-red-500' : 'hover:!text-red-500'
                     }`}
                   >
-                    {n.nav}
+                    {n.nav} 
                   </span>
                 </div>
               </Link>
@@ -65,30 +60,29 @@ export default function NavBar() {
         </div>
       )}
       
-       <div className="md:m-4 max-h-[100dvh] w-[94.8vw] md:w-[24rem] rounded-lg md:border border-black dark:border-white z-50 transition-colors duration-300">
-      <div className="md:ml-2 mt-4 w-0 md:w-[22vw] gap-2 md:gap-0 md:p-3 text-sm z-0">
+      <div className="max-h-[100dvh] w-[94.8vw] md:w-[16rem] rounded-lg z-50 transition-colors duration-300 text-xs">
+      <div className="mt-8 w-0 md:w-[16vw] gap-2 md:gap-0">
         <div className="hidden md:flex flex-col">
           {navs.map((n, i) => (
-            <div className="flex items-center md:justify-start justify-center mb-4" key={i}>
-                <Link href={n.route}>
+          <Link href={n.route} key={i}>
+            <div className="flex items-center md:justify-start justify-center mb-4" >
                 <div className='flex '>
               <div
-                className={`w-5 h-5 hidden md:flex items-center justify-center m-1 mr-4 font-bold text-xs ${n.color} border border-black dark:border-white `}
+                className={`w-5 h-5 hidden md:flex items-center justify-center m-1 font-bold  ${n.color} border`}
               >
                 {i + 1}
               </div>
               <span
-                className={`tracking-wide font-iansui font-extrabold p-1 m-0 transition-colors duration-200 ${
-                  pathname === n.route
-                    ? 'text-red-500'
-                    : 'text-black dark:text-white hover:text-red-500'
+                className={`tracking-wide font-kodeMono font-extrabold p-1 m-0 transition-colors duration-200 ${
+               pathname === n.route ? '!text-red-500' : 'hover:!text-red-500'
                 }`}
+               
               >
                 {n.nav}
               </span>
               </div>
-              </Link>
             </div>
+              </Link>
           ))}
         </div>
       </div>

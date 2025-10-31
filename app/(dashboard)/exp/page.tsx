@@ -1,53 +1,88 @@
 import ThreeTexts from "@/components/mainpage/threeText";
-import { Metadata } from "next";
+import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Experience",
-};
-
-export default function e() {
+export default function WhyHireMe() {
   return (
-    <div className="h-screen flex">
-      {/* Section Header */}
-      <ThreeTexts 
-        t1="Experience Section" 
-        t2="No Formal Experience Yet —— Open to opportunities" 
-        t4={
-        <div className="mt-4">
-          <p>If you see a project or role I’d be a good fit for, feel free to reach out!</p>
-          <a
-            href="mailto:aakashbwd@gmail.com"
-            className="bg-blue-500 hover:bg-green-500 text-white px-6 py-2 rounded-full font-semibold transition-all duration-200 mt-2 inline-block"
-          >
-            Ping Me 💼
-          </a>
-        </div>
-        }
-      />
+    <div className="h-screen flex overflow-y-auto">
 
-      {/* Main Experience Details */}
-      <ThreeTexts
-        t1=""
-        t2="Currently I'm honing my skills in full-stack web development, exploring React, Node.js, PostgreSQL, and cloud deployments."
-        t3="Working on personal projects and contributing to open-source to strengthen my portfolio."
-        t4="Completed multiple academic and personal projects including web apps, REST APIs, and small backend systems, gaining hands-on experience with modern development workflows and tools."
-      />
+    <div className="md:w-[20rem] border-r ">
+        <ThreeTexts
+          t1="No Formal Experience Yet"
+          t2="Open to opportunities for internships or full-time roles."
+          t3="Passionate about software development, problem-solving, and building real-world projects."
+          t4={
+             <p className="!text-green-600 text-sm">Here’s why you should hire me → </p> 
+          }
+        />
+      </div>
+      
+      <div className=" md:w-[20rem] border-r rp-4 shadow hover:shadow-lg transition">
+        <ThreeTexts
+          t1="LeetCode"
+          t2="Solved 500+ algorithm & DS problems, showcasing strong problem-solving and coding skills."
+          t3=""
+          t4={
+            <Link
+              href="/dsa"
+              className="inline-block mt-4 px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition"
+            >
+              View Profile
+            </Link>
+          }
+        />
+      </div>
 
-      {/* Additional Skills & Learning */}
-      <ThreeTexts
-        t1=""
-        t2="Actively learning advanced topics such as CI/CD pipelines, Docker, Redis, Kafka, and cloud-native applications to prepare for real-world software development challenges."
-        t3="Building end-to-end projects integrating frontend, backend, and database systems for practical exposure."
-        t4="Exploring industry-standard practices like automated testing, code reviews, and Git workflows to become production-ready."
-      />
+      {/* GitHub / Projects Summary */}
+      <div className=" md:w-[20rem] border-r">
+        <ThreeTexts
+          t1="GitHub / Projects"
+          t2="Completed 10+ full-stack projects including web apps, REST APIs, and cloud deployments."
+          t3=""
+          t4={
+            <Link
+              href="/dsa"
+              className="inline-block mt-4 px-4 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition"
+            >
+              View Profile
+            </Link>
+          }
+        />
+      </div>
 
-      {/* Highlight Soft Skills / Achievements */}
-      <ThreeTexts
-        t1=""
-        t2="Strong problem-solving and analytical skills demonstrated through algorithm challenges and project work."
-        t3="Quick learner, able to adapt to new tools and technologies efficiently."
-        t4="Passionate about software development and continuously expanding my knowledge base through online courses, tutorials, and hands-on experimentation."
-      />
+      {/* Skills Summary */}
+      <div className=" md:w-[20rem] border-r">
+        <ThreeTexts
+          t1="Skills"
+          t2="Proficient in React, Node.js, PostgreSQL, Redis, Docker, CI/CD, and modern tech stacks."
+          t3=""
+          t4={
+            <Link
+              href="/skills"
+              className="inline-block mt-4 px-4 py-2 bg-purple-500 text-white rounded-full hover:bg-purple-600 transition"
+            >
+              View Skills
+            </Link>
+          }
+        />
+      </div>
+
+      {/* Career Goal */}
+      <div className=" md:w-[20rem] border-r">
+        <ThreeTexts
+          t1="Career Goal"
+          t2="Looking for Full-time or Internship → FTE opportunities to apply my skills in real-world software development."
+          t3=""
+          t4={
+            <Link
+              href="/"
+              className="inline-block mt-4 px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition"
+            >
+              Contact Me
+            </Link>
+          }
+        />
+      </div>
+
     </div>
   );
 }

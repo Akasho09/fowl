@@ -1,4 +1,4 @@
-import octokit from "./octo";  // ✅ if you did `export default new Octokit({ ... })`
+import octokit from "./octo";  
 
 export const getRepos = async () => {
   const response = await octokit.rest.repos.listForUser({
