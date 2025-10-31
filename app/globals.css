@@ -90,16 +90,18 @@ body, .theme * {
 
 @keyframes bounce-ball {
   0%, 100% {
-    top: 0px; /* bottom of top image */
+    top: 0; /* top of parent div */
     animation-timing-function: ease-in;
   }
   50% {
-    top: calc(100dvh - 614px);
+    top: calc(100% - 12px); /* stays inside parent div */
     animation-timing-function: ease-out;
   }
 }
 
 .animate-bounce-ball {
   position: absolute;
-  animation: bounce-ball 3s infinite;
+  top: 0;
+  animation: bounce-ball 2.5s infinite;
 }
+
