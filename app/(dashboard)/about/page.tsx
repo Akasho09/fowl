@@ -21,7 +21,7 @@ export default function A() {
         <InfoCard
           txt="I’m a Problem Solver"
           txt2="On the backend, I work extensively with MongoDB, MySQL, PostgreSQL, and Prisma ORM to design secure, efficient data architectures. I leverage tools like Docker, Redis, and AWS to enhance scalability and reliability, while WebSockets enable me to build real-time interactive systems."
-          txt4="As I enter my final year of B.Tech, I’m actively seeking a **full-time Software Engineering role** where I can contribute to impactful products, grow with a talented team, and keep pushing my technical boundaries."
+          txt4="As I enter my final year of B.Tech, I’m actively seeking a full-time Software Engineering role where I can contribute to impactful products, grow with a talented team, and keep pushing my technical boundaries."
         />
       </div>
 

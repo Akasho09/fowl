@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image", title: "Akash Ahmad Malik – Portfolio", description: "Explore Akash Ahmad Malik’s software projects and tech skills.", creator: "@Aakash41339611", images: ["/akash.jpeg"],
   },
-  openGraph: { title: "Akash Ahmad Malik – Portfolio", url: "https://akash09.vercel.app", siteName: "Akash Ahmad Malik", images: [ { url: "/akash.jpeg", width: 600, height: 600, alt: "Akash Ahmad Malik Portfolio Preview", }, ],
+  openGraph: { title: "Akash Ahmad Malik – Portfolio", url: "https://akash17.vercel.app", siteName: "Akash Ahmad Malik", images: [ { url: "/akash.jpeg", width: 600, height: 600, alt: "Akash Ahmad Malik Portfolio Preview", }, ],
     locale: "en_US",  type: "website",},};
 
 export const viewport: Viewport = {
@@ -51,6 +51,8 @@ export default function RootLayout({
           name="google-site-verification"
           content="uhUSq3S9zTC8jQ-rP1KM_Ne-ZPVdXiya5FtSIS2RCkk"
         />
+      <meta name="google-adsense-account" content="ca-pub-6934180729383134"></meta>
+      
         <Script src="/hScroll.js" strategy="afterInteractive" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-LYJ3E16RSB"

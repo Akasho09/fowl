@@ -184,11 +184,15 @@ export default function SnakeGame() {
       eatCountRef.current += 1;
 
       if (isBonusRef.current) {
+        const audio = new Audio("./bigWin.mp3");
+        audio.play();
         scoreRef.current += 15;
         setScore(scoreRef.current);
         clearBonusTimers();
         foodRef.current = randomFood(BOX);
       } else {
+        const audio = new Audio("./win.mp3");
+        audio.play();
         scoreRef.current += 3;
         setScore(scoreRef.current);
         if (eatCountRef.current % 5 === 0) {
@@ -203,6 +207,8 @@ export default function SnakeGame() {
 
     for (let i = 1; i < snake.length; i++) {
       if (snake[i].x === head.x && snake[i].y === head.y) {
+        const audio = new Audio("./end.mp3");
+        audio.play();
         setGameOver(true);
         setRunning(false);
         if (scoreRef.current > highScore) {
