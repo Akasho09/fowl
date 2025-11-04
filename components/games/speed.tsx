@@ -55,9 +55,13 @@ export default function ClickSpeedGame() {
   return (
     <div
       ref={containerRef}
-      className="relative flex flex-col items-center justify-center min-h-screen p-2 w-[92dvw] md:w-[20rem] text-sm overflow-hidden"
+      className="relative flex flex-col min-h-screen w-[92dvw] p-2 md:w-[20rem] text-sm overflow-hidden"
     >
-      <div className="absolute top-2 text-center text-base font-semibold">
+      <div className="h-1/6 my-8">
+        <p className="font-bold text-base m-2"> 🎯 Clicking Speed Game</p>
+      </div>
+
+      <div className="text-base font-semibold">
         <p>Score: {score}</p>
         <p>Highscore: {highscore}</p>
         <p className={gameActive ? "!text-red-500" : "text-green-500"}>
@@ -68,7 +72,7 @@ export default function ClickSpeedGame() {
       {!gameActive && (
         <button
           onClick={startGame}
-          className="bg-indigo-500 px-6 py-3 rounded-lg font-bold hover:bg-indigo-600 transition mt-20"
+              className="mt-8 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition"
         >
           Start Game
         </button>
@@ -77,7 +81,7 @@ export default function ClickSpeedGame() {
       {gameActive && (
         <button
           onClick={moveButton}
-          className="absolute bg-red-500 rounded-full transition-all shadow-md active:scale-90"
+          className="mt-8 absolute bg-red-500 rounded-full transition-all shadow-md active:scale-90"
           style={{
             top: `${position.top}px`,
             left: `${position.left}px`,

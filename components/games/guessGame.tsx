@@ -25,7 +25,7 @@ export default function GuessGamePage() {
       return;
     }
     setPreviousGuesses([...previousGuesses, userGuess]);
-    setAttempts(attempts + 1);
+    setAttempts((prev) => prev + 1);
 
     if (userGuess === number) {
       setMessage(`🎉 Correct! The number was ${number}.`);
@@ -47,50 +47,58 @@ export default function GuessGamePage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-2 w-[92dvw] md:w-[20rem] text-sm">
+    <div className="flex flex-col min-h-screen w-[92dvw] md:w-[20rem] text-sm p-2">
+      <div className="h-1/6 my-8">
+        <p className="font-bold text-base m-2"> 🎯 Guess The Number Game</p>
+      </div>
+
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
+        className="h-5/6 flex flex-col my-6"
       >
-        <div className="p-6 text-center">
-            <h1 className="text-md font-semibold mb-3">🎯 Guess the Number</h1>
-            <p className="mb-4 font-serif">I{"'"}m thinking of a number (1–100)</p>
+        <p className="mb-4 text-sm font-semibold">I{"'"}m thinking of a number (1–100)</p>
 
-            {!gameOver && (
-              <>
-                <input
-                  type="number"
-                  value={guess}
-                  onChange={(e) => setGuess(e.target.value)}
-                  className="w-full p-2 rounded-md text-center outline-none focus:ring-2 focus:ring-blue-500 mb-3 border"
-                  placeholder="Enter your guess"
-                />
-                <button onClick={handleGuess} className="bg-red-200 border p-1">
-                  Guess
-                </button>
-              </>
-            )}
+        {!gameOver && (
+          <>
+            <input
+              type="number"
+              value={guess}
+              onChange={(e) => setGuess(e.target.value)}
+              className="w-full p-2 rounded-md outline-none border focus:ring-2 focus:ring-blue-400 mb-3"
+              placeholder="Enter your guess"
+            />
+            <button
+              onClick={handleGuess}
+              className="w-full bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md transition"
+            >
+              Guess
+            </button>
+          </>
+        )}
 
-            {message && (
-              <motion.p
-                key={message}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="mt-4 text-sm"
-              >
-                {message}
-              </motion.p>
-            )}
+        {message && (
+          <motion.p
+            key={message}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-4 text-sm font-medium"
+          >
+            {message}
+          </motion.p>
+        )}
 
-            <p className="mt-3 text-sm !text-red-900">Attempts: {attempts}</p>
+        <p className="mt-3 text-sm text-gray-600">Attempts: {attempts}</p>
 
-            {gameOver && (
-              <button onClick={handleReset} className="mt-4 w-full">
-                🔁 Play Again
-              </button>
-            )}
-        </div>
+        {gameOver && (
+          <button
+            onClick={handleReset}
+            className="mt-4 w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-md transition"
+          >
+            🔁 Play Again
+          </button>
+        )}
       </motion.div>
     </div>
   );

@@ -248,9 +248,13 @@ export default function SnakeGame() {
 
   return (
 
-    <main className="flex flex-col items-center justify-center min-h-screen w-[92dvw] md:w-[20rem] text-sm p-2">
-      <h1 className="text-lg font-semibold mb-3">Snake Game</h1>
+    <main className="flex flex-col min-h-screen w-[92dvw] md:w-[20rem] text-sm p-2">
+     
+      <div className="h-1/6 my-8">
+        <p className="font-bold text-base m-2"> 🎯 Snake Game</p>
+      </div>
 
+    <div>
       <div className="relative aspect-square w-full max-w-[400px] border flex items-center justify-cente ">
         <canvas ref={canvasRef} width={CANVAS} height={CANVAS} className="w-full h-full" />
       </div>
@@ -263,7 +267,7 @@ export default function SnakeGame() {
       {!running && (
         <button
           onClick={resetGame}
-          className="px-4 py-1 mt-3 border rounded bg-gray-300 hover:bg-gray-600"
+          className="w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition mt-2"
         >
           {gameOver ? "Restart Game" : "Start Game"}
         </button>
@@ -273,22 +277,23 @@ export default function SnakeGame() {
 
       {running && (
         <div className="flex flex-col items-center gap-2 mt-4">
-          <button onClick={() => handleDirection("UP")} className="p-2 border rounded">
+          <button onClick={() => handleDirection("UP")} className="md:p-6 p-4 border rounded">
             <FaArrowUp size={14} />
           </button>
           <div className="flex gap-4">
-            <button onClick={() => handleDirection("LEFT")} className="p-2 border rounded">
+            <button onClick={() => handleDirection("LEFT")} className="md:p-6 p-4 border rounded">
               <FaArrowLeft size={14} />
             </button>
-            <button onClick={() => handleDirection("RIGHT")} className="p-2 border rounded">
+            <button onClick={() => handleDirection("RIGHT")} className="md:p-6 p-4 border rounded">
               <FaArrowRight size={14} />
             </button>
           </div>
-          <button onClick={() => handleDirection("DOWN")} className="p-2 border rounded">
+          <button onClick={() => handleDirection("DOWN")} className="md:p-6 p-4 border rounded">
             <FaArrowDown size={14} />
           </button>
         </div>
       )}
+      </div>
     </main>
   );
 }

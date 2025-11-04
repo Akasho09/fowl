@@ -6,10 +6,10 @@ import Me from "@/components/mySelf";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Kode_Mono , JetBrains_Mono } from "next/font/google";
+import { Kode_Mono } from "next/font/google";
 import ColorPaletteMenu from "@/components/colorPallete";
-export const kodeMono = Kode_Mono({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-kodemono", display: "swap", });
-export const jetB = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-kodemono", display: "swap", });
+
+ const kodeMono = Kode_Mono({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-kodemono", display: "swap", });
 
 export const metadata: Metadata = {
   title: {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image", title: "Akash Ahmad Malik – Portfolio", description: "Explore Akash Ahmad Malik’s software projects and tech skills.", creator: "@Aakash41339611", images: ["/akash.jpeg"],
   },
-  openGraph: { title: "Akash Ahmad Malik – Portfolio", url: "https://akash17.vercel.app", siteName: "Akash Ahmad Malik", images: [ { url: "/akash.jpeg", width: 600, height: 600, alt: "Akash Ahmad Malik Portfolio Preview", }, ],
+  openGraph: { title: "Akash Ahmad Malik – Portfolio", url: "https://akash09.vercel.app", siteName: "Akash Ahmad Malik", images: [ { url: "/akash.jpeg", width: 600, height: 600, alt: "Akash Ahmad Malik Portfolio Preview", }, ],
     locale: "en_US",  type: "website",},};
 
 export const viewport: Viewport = {

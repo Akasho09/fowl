@@ -6,8 +6,8 @@ export default function Me(){
     <div className="fixed top-0 h-[100dvh] md:w-[4rem] w-[8vw] border-r z-[50] bg-[var(--bg-color)]/80 backdrop-blur-sm"
     >
       <div className="flex flex-col items-center justify-between h-[100dvh]">
-        <Link href={"/"} className="mt-36 whitespace-nowrap text-2xl font-kodeMono font-bold cursor-pointer">
-          <p className="-rotate-90 z-[20] !text-pink-700">
+        <Link href={"/"} className="pt-56 mt-2 whitespace-nowrap text-2xl font-kodeMono font-bold cursor-pointer">
+          <p className="-rotate-90 z-[10] !text-pink-700 md:w-[4rem] w-[8vw]">
             AKASH AHMAD MALIK
           </p>
         </Link>
