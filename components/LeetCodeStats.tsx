@@ -65,17 +65,17 @@ const LeetCodeStatsCombined = ({
     <div className="w-full max-w-lg mx-auto flex flex-col gap-6 p-5 border border-x-0 shadow-lg">
       {/* Header */}
       <div className="flex justify-between items-end border-b pb-3">
-        <span className="text-md font-semibold text-gray-700">
+        <span className="text-md font-semibold">
           Problems Solved
         </span>
-        <span className="text-3xl font-bold text-gray-900">
+        <span className="text-3xl font-bold ">
           {solved}
-          <span className="text-sm font-medium text-gray-500">/{total}</span>
+          <span className="text-sm font-medium ">/{total}</span>
         </span>
       </div>
 
       {/* --- Rectangular Progress Bar --- */}
-      <div className="relative w-full h-2 rounded-full bg-gray-200 overflow-hidden">
+      <div className="relative w-full h-2 rounded-full  overflow-hidden">
         {solvedSegments.map(({ level, solved: catSolved, color }) => {
           const segmentWidth = safeDivide(catSolved, total);
           const startOffset = currentCumulativeWidth;
@@ -117,9 +117,9 @@ const LeetCodeStatsCombined = ({
                 ></span>
                 {level}
               </span>
-              <span className="text-gray-700 font-medium">
+              <span className=" font-medium">
                 {solved}
-                <span className="text-gray-400 text-xs font-normal ml-1">
+                <span className="text-xs font-normal ml-1">
                   ({percent}%)
                 </span>
               </span>
@@ -140,13 +140,15 @@ const LeetCodeStatsCombined = ({
             )`,
           }}
         ></div>
-        <div className="absolute inset-[6px] bg-[#f9fafb] rounded-full flex flex-col justify-center items-center shadow-md">
+        <div className="absolute inset-[6px] rounded-full flex flex-col justify-center items-center shadow-md"
+              style={{ background: "var(--bg-color)" }}
+        >
           <span className="text-lg font-bold">
             {solved}
-            <span className="text-sm text-gray-500">/{total}</span>
+            <span className="text-sm ">/{total}</span>
           </span>
-          <span className="text-xs text-gray-500">Solved</span>
-          <span className="text-[10px] text-gray-400">
+          <span className="text-xs ">Solved</span>
+          <span className="text-[10px]">
             {attempting} Attempting
           </span>
         </div>

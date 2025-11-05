@@ -147,7 +147,6 @@ function InfoTable({ title, headers, rows, footer }: InfoTableProps) {
       <div className="flex flex-col gap-2 mt-2">
         {/* Table header */}
         <div className="flex justify-between px-4 py-2 rounded-t-md border-b "
-            style={{ backgroundColor: "var(--bg-color)" }}
         >
           {headers.map((h, i) => (
             <span

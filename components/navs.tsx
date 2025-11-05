@@ -14,8 +14,17 @@ const navs = [
     { nav : "DSA" ,  route: "/dsa" , color: "bg-slate-300" } ,
     { nav: "Experience", route: "/exp", color: "bg-pink-300" },
     { nav: "Extra Curriculars", route: "/curric", color: "bg-orange-300" },
+    { nav: "Blogs", route: "/blogs", color: "bg-purple-300" },
     { nav: "Extras", route: "/extras", color: "bg-teal-300" }
 ];
+
+
+export function Arrow () {
+const pathname = usePathname()
+const index = navs.findIndex((n) => n.route === pathname);
+  return <RightArrow linkk={ navs[(index+1)%navs.length].route || "/"}>{navs[(index+1)%navs.length].nav}</RightArrow>
+}
+
 
 export default function NavBar() {
   const pathname = usePathname()
@@ -60,7 +69,7 @@ export default function NavBar() {
         </div>
       )}
       
-      <div className="max-h-[100dvh] w-[94.8vw] md:w-[16rem] rounded-lg z-50 transition-colors duration-300 text-xs">
+      <div className="max-h-[100dvh] w-[94.8vw] md:w-[20rem] rounded-lg z-50 transition-colors duration-300 text-xs">
       <div className="mt-8 w-0 md:w-[16vw] gap-2 md:gap-0">
         <div className="hidden md:flex flex-col">
           {navs.map((n, i) => (
@@ -93,9 +102,3 @@ export default function NavBar() {
   )
 }
 
-
-export function Arrow () {
-const pathname = usePathname()
-const index = navs.findIndex((n) => n.route === pathname);
-  return <RightArrow linkk={ navs[(index+1)%navs.length].route || "/"}>{navs[(index+1)%navs.length].nav}</RightArrow>
-}

@@ -8,7 +8,7 @@ export default function ProjectCardClient({ issues }: { issues: Issue[] | null }
   const [open, setOpen] = useState(false);
   return (
     <div className="pt-4">
-      <button onClick={() => setOpen(!open)} className="flex items-center gap-2 text-sm font-semibold !text-red-900">
+      <button onClick={() => setOpen(!open)} className="flex !font-jetB items-center gap-2 text-sm font-semibold !text-red-900">
         Want to Contribute!
         <IoIosArrowDown
           className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}

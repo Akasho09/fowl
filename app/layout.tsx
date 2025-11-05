@@ -68,7 +68,7 @@ export default function RootLayout({
         </Script>
       </head>
 <body className="new-scrollbar transition-colors "
-        style={{ backgroundColor: "var(--bg-color)" , borderColor : "var(--border-color)", color : "var(--text-color)"}}
+        style={{ background: "var(--bg-color)" , borderColor : "var(--border-color)", color : "var(--text-color)"}}
 >
   <div className="relative min-h-screen overflow-auto md:overflow-visible z-20 theme">
     <div className="fixed inset-0 z-10">
@@ -78,7 +78,7 @@ export default function RootLayout({
     <Me />
 
     <div className="ml-[8dvw] md:ml-[5rem] flex flex-col md:flex-row relative z-30">
-      <aside className="md:border-r shrink-0 w-0 h-0 md:h-screen md:w-40 lg:w-60 ">
+      <aside className="md:border-r shrink-0 w-0 h-0 md:h-screen md:w-[20rem]">
         <NavBar />
       </aside>
       

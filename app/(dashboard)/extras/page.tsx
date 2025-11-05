@@ -12,21 +12,20 @@ export const metadata : Metadata = {
 
 export default function A() {
 return   <div className="h-screen flex overflow-y-hidden overflow-x-visible">
-          <div className="h-screen flex border-r w-[92dvw] md:w-[20rem]">
-           <p className="font-bold text-base m-2 mt-12">Play !! </p>
-          </div>
-          <div className="h-screen flex border-r w-[92vw] md:w-[20rem]">
+          <div className="h-screen flex border-r w-[92vw] md:w-[20rem] ">
           <SnakeGame/>
           </div>
           <div className="h-screen flex border-r w-[92vw] md:w-[20rem]">
-          <GuessGamePage/>
+          <TypingTest/>
           </div>
           <div className="h-screen flex border-r w-[92vw] md:w-[20rem]">
           <ClickSpeedGame/>
           </div>
           <div className="h-screen flex border-r w-[92vw] md:w-[20rem]">
-          <TypingTest/>
+          <GuessGamePage/>
           </div>
+
+
           <div className="h-screen flex border-r w-[92vw] md:w-[20rem]">
           <div 
             className="flex w-[92vw] md:w-[20rem] items-center justify-center">

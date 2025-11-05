@@ -21,46 +21,71 @@ body, .theme * {
   border-color: var(--border-color);
   transition: background-color 0.5s, color 0.5s, border-color 0.5s;
 }
-
+/* 🌥️ Dim Theme — soft bluish-gray with warm center */
 .theme-light {
-  --bg-color: #ffffff;      /* Soft neutral background */
-  --text-color: #000000;    /* Deep blue text */
-  --border-color: #000000;  /* Soft border */
-  --ball-bg: #000000;       /* Highlight/planet color */
+  --bg-color: radial-gradient(circle at center, #fdfcfb 0%, #c2c2dd 50%, #d6d8db 100%);
+  --text-color: #1c1c1c;
+  --border-color: #b0b0b0;
+  --ball-bg: #2f2f2f;
 }
 
-/* Blue Theme */
+/* 🌤️ Light Blue — subtle sky glow using closest-side */
 .theme-blue {
-  --bg-color: #65635f;      /* Light sky/blue background */
-  --text-color: #a4b2c2;    /* Deep blue text for contrast */
-  --border-color: #5680aa;  /* Blue accent borders */
-  --ball-bg: #54a2ae;       /* Deep blue highlights */
+  --bg-color: radial-gradient(closest-side, #a8aa81, #f4f3b7, #caf1f4);
+  --text-color: #0d1b2a;
+  --border-color: #4b6b83;
+  --ball-bg: #2e5a72;
 }
 
-/* Green Theme */
+/* ☀️ Light Green — soft ellipse for organic feel */
 .theme-green {
-  --bg-color: #a1d1914c;      /* Soft beige/greenish background */
-  --text-color: #d611ccb6;    /* Deep green text */
-  --border-color: #d33434;  /* Green accent borders */
-  --ball-bg: rgb(4, 120, 87);       /* Green highlights */
+  --bg-color: radial-gradient(ellipse at top left, #9de5c1 0%, #a8e4c7 50%, #97dac5 100%);
+  --text-color: #6d9fd5;
+  --border-color: #7aa5c9;
+  --ball-bg: #005f73;
 }
 
-/* Pink Theme */
-.theme-pink {
-  --bg-color: #89f1ff;      /* Soft pink background */
-  --text-color: #181313;    /* Dark rose text */
-  --border-color: #000000;  /* Pink accent borders */
-  --ball-bg: #3d383a;       /* Pink highlights */
-} 
-
-/* Dark Theme */
+/* 🌑 Dark Theme — farthest-corner for deep space effect */
 .theme-dark {
-  --bg-color: #030303;      /* Near-black background */
-  --text-color: #F1EFEC;    /* Light neutral text */
-  --border-color: #ffffff;  /* Gray accent borders */
-  --ball-bg: #F1EFEC;       /* Light highlights */
+  --bg-color: radial-gradient(farthest-corner at 80% 20%, #2a2a2e 0%, #121212 60%, #0a0a0a 100%);
+  --text-color: #f1efec;
+  --border-color: #6f6f6f;
+  --ball-bg: #f1efec;
   --img-filter: brightness(0) invert(1);
 }
+
+/* 🌸 Pinkish Theme — circle with off-center glow */
+.theme-pink {
+  --bg-color: radial-gradient(circle at 30% 30%, #e096b2 0%, #c2a6b2 50%, #e7a5c1 100%);
+  --text-color: #381a1a;
+  --border-color: #b26b7b;
+  --ball-bg: #d45a78;
+}
+
+/* 🌌 Space Purple — ellipse for mystical look */
+.theme-purple {
+  --bg-color: radial-gradient(ellipse at bottom right, #8a64c0 0%, #5d3a8c 50%, #2b1a50 100%);
+  --text-color: #f0e6ff;
+  --border-color: #6b4c99;
+  --ball-bg: #9b7ed6;
+}
+
+/* 🌅 Sunset Orange — closest-side for warm sunburst effect */
+.theme-orange {
+  --bg-color: radial-gradient(closest-side at center, #ffd4a5 0%, #ff9f6a 60%, #ff6b3a 100%);
+  --text-color: #4a2c1b;
+  --border-color: #b76a3f;
+  --ball-bg: #d9733b;
+}
+
+/* 🌿 Mint Green — ellipse at top right for fresh, airy feel */
+.theme-mint {
+  --bg-color: radial-gradient(ellipse at top right, #d6fff5 0%, #aef0e8 50%, #7fe8db 100%);
+  --text-color: #064d40;
+  --border-color: #4ab6a0;
+  --ball-bg: #2ea191;
+}
+
 /* Firefox */
 .small-scrollbar {
   scrollbar-width: thin; /* thin scrollbar */

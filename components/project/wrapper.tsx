@@ -24,10 +24,10 @@ export default async function ProjectServer({
       <div className="overflow-y-auto small-scrollbar text-xs tracking-wide relative transition-colors duration-300">
         <article className="h-[92dvh] mt-[3dvh] mb-[3dvh] flex flex-col justify-between z-10 m-3">
           <header>
-            <h2 className="text-sm md:text-md font-bold !text-red-700">
+            <h2 className="text-sm md:text-md font-bold !font-jetB border-l p-1 !text-red-700">
               {pname}
             </h2>
-            <p className="italic mt-1 text-right !font-serif ">{date}</p>
+            <p className=" mt-1 text-right !font-serif ">{date}</p>
           </header>
           { desc.length > 0 && (
           <section className="mt-4 scroll-container space-y-1 !font-jetB">

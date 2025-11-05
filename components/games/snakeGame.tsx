@@ -267,7 +267,7 @@ export default function SnakeGame() {
       {!running && (
         <button
           onClick={resetGame}
-          className="w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition mt-2"
+          className="w-full bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md transition mt-2"
         >
           {gameOver ? "Restart Game" : "Start Game"}
         </button>

@@ -2,28 +2,82 @@
 
 import { useEffect, useState } from "react";
 
-const words = [
+// ✅ Master words list
+const allWords = [
   "react", "nextjs", "typescript", "developer", "keyboard", "speed",
   "frontend", "backend", "docker", "database", "api", "tailwind", "performance",
   "coding", "javascript", "github", "openai", "prisma", "server", "client",
   "function", "variable", "component", "router", "middleware", "express",
   "logic", "debug", "compile", "deploy", "testing", "virtual", "node", "framework",
   "render", "optimize", "commit", "branch", "socket", "cache", "query", "mutation",
-  "design", "interface", "state", "context", "hook", "promise", "async", "await", "syntax"
+  "design", "interface", "state", "context", "hook", "promise", "async", "await", "syntax",
+  "session", "authentication", "authorization", "token", "encryption",
+  "json", "rest", "graphql", "endpoint", "schema",
+  "build", "bundle", "vite", "webpack", "babel", "eslint",
+  "lint", "format", "debugger", "runtime", "thread", "memory",
+  "processor", "event", "listener", "handler", "queue", "stack", "heap",
+  "algorithm", "array", "object", "loop", "condition", "recursion",
+  "class", "constructor", "inheritance", "polymorphism", "encapsulation",
+  "module", "import", "export", "package", "dependency", "version",
+  "pipeline", "ci", "cd", "workflow", "branching", "merge", "pullrequest",
+  "container", "volume", "network", "proxy", "reverseproxy",
+  "nginx", "loadbalancer", "microservice", "scalability", "availability",
+  "monitoring", "logging", "metrics", "uptime", "latency",
+  "cloud", "aws", "gcp", "azure", "vercel", "render",
+  "dns", "domain", "ssl", "certificate", "security",
+  "csrf", "cors", "request", "response", "header", "body", "params",
+  "websocket", "stream", "eventsource", "worker", "threadpool",
+  "database", "postgres", "mongodb", "mysql", "sqlite", "redis",
+  "index", "transaction", "querybuilder", "migration", "model",
+  "zod", "validator", "schema", "controller", "service", "repository",
+  "ui", "ux", "responsive", "accessibility", "animation", "transition",
+  "shadow", "gradient", "theme", "color", "layout", "grid", "flexbox",
+  "html", "css", "jsx", "tsx", "markdown", "editor",
+  "hook", "effect", "ref", "context", "provider", "reducer",
+  "useState", "useEffect", "useMemo", "useCallback", "useRef",
+  "signal", "dom", "virtualdom", "hydration", "ssr", "csr", "isr",
+  "lazyload", "prefetch", "cache", "invalidate", "mutation",
+  "ai", "ml", "neural", "model", "dataset", "training", "inference",
+  "prompt", "embedding", "vector", "tokenizer", "transformer",
+  "openapi", "swagger", "postman", "insomnia",
+  "jsonify", "serialize", "parse", "encode", "decode",
+  "bash", "shell", "script", "command", "terminal", "process",
+  "port", "ip", "protocol", "tcp", "udp", "request", "response",
+  "eventloop", "callback", "microtask", "macrotask",
+  "storage", "localstorage", "sessionstorage", "cookie",
+  "fetch", "axios", "supertest", "jest", "vitest",
+  "mock", "stub", "spy", "assert", "expect",
+  "benchmark", "performance", "analyze", "metrics",
+  "time", "date", "format", "parse", "locale",
+  "emoji", "animation", "canvas", "svg", "webgl", "threejs",
+  "state", "signal", "redux", "zustand", "jotai", "recoil",
+  "firebase", "supabase", "trpc", "hono", "drizzle",
+  "pnpm", "npm", "yarn", "workspace", "monorepo",
+  "env", "dotenv", "config", "log", "error", "exception",
+  "try", "catch", "throw", "finally"
 ];
 
+// ✅ helper to get random unique 50 words
+function getRandomWords(count: number) {
+  const shuffled = [...allWords].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+}
+
 export default function TypingGame() {
+  const [words, setWords] = useState<string[]>([]);
   const [input, setInput] = useState("");
   const [index, setIndex] = useState(0);
   const [startTime, setStartTime] = useState<number | null>(null);
   const [wpm, setWpm] = useState<number | null>(null);
   const [finished, setFinished] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(60); // ⏱️ 1 minute
+  const [timeLeft, setTimeLeft] = useState(60);
 
-  // 🕒 Countdown timer
+  useEffect(() => {
+    setWords(getRandomWords(50));
+  }, []);
+
   useEffect(() => {
     if (finished || !startTime) return;
-
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
         if (prev <= 1) {
@@ -34,44 +88,29 @@ export default function TypingGame() {
         return prev - 1;
       });
     }, 1000);
-
     return () => clearInterval(timer);
-  }, [startTime, finished , index]);
+  }, [startTime, finished]);
 
-  // 🎯 Handles typing input
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (finished) return;
-
     const value = e.target.value.trim();
-
     if (!startTime) setStartTime(Date.now());
-
     if (value === words[index]) {
       setIndex(index + 1);
       setInput("");
-
-      // ✅ End game when all words done
-      if (index + 1 === words.length) {
-        finishGame(false);
-      }
+      if (index + 1 === words.length) finishGame(false);
     } else {
       setInput(e.target.value);
     }
   };
 
-  // 🧮 Calculate WPM correctly
   const finishGame = (timeout: boolean) => {
     if (finished) return;
-
     const endTime = Date.now();
-    const durationMinutes =
-      startTime ? (endTime - startTime) / 1000 / 60 : 1;
-
+    const durationMinutes = startTime ? (endTime - startTime) / 60000 : 1;
     const effectiveMinutes = timeout ? 1 : durationMinutes;
-
     const wordsTyped = index;
     const calculatedWpm = Math.round(wordsTyped / effectiveMinutes);
-
     setWpm(calculatedWpm > 0 ? calculatedWpm : 0);
     setFinished(true);
   };
@@ -83,27 +122,20 @@ export default function TypingGame() {
     setWpm(null);
     setFinished(false);
     setTimeLeft(60);
-  };
-
-  const handleChallenge = () => {
-    alert("📨 Challenge sent to developer! They'll get back to you soon 😎");
+    setWords(getRandomWords(50)); // ✅ new random set
   };
 
   return (
     <div className="flex flex-col min-h-screen w-[92dvw] md:w-[20rem] text-sm p-2">
       <div className="h-1/6 my-8">
-        <p className="font-bold text-base m-2"> 🎯 Check Your Typing speed </p>
+        <p className="font-bold text-base m-2">🎯 Check Your Typing Speed</p>
       </div>
-      {/* 🕒 Timer */}
+
       <p className="text-gray-400 mb-2">
         Time Left: <span className="text-yellow-400 font-semibold">{timeLeft}s</span>
       </p>
 
-      {/* Words Display (not copyable) */}
-      <div
-        className="border w-full flex flex-wrap select-none text-sm p-4 rounded-xl shadow-md mb-6"
-        onContextMenu={(e) => e.preventDefault()}
-      >
+      <div className="border w-full flex flex-wrap select-none text-sm p-4 rounded-xl shadow-md mb-6">
         {words.map((word, i) => (
           <span
             key={i}
@@ -120,7 +152,6 @@ export default function TypingGame() {
         ))}
       </div>
 
-      {/* Input or Result */}
       {!finished ? (
         <>
           <input
@@ -148,23 +179,6 @@ export default function TypingGame() {
           </button>
         </div>
       )}
-
-      {/* Bottom Buttons */}
-      <div className="flex mt-8 space-x-4">
-        <button
-          onClick={() => alert(wpm ? `Developers WPM: 35` : "Finish typing first!")}
-          className="bg-blue-500 hover:bg-blue-400 p-2 rounded-lg text-sm"
-        >
-          📊 See My WPM
-        </button>
-
-        <button
-          onClick={handleChallenge}
-          className="bg-purple-500 hover:bg-purple-400 p-2 rounded-lg text-sm"
-        >
-          ⚔️ Challenge Me
-        </button>
-      </div>
     </div>
   );
 }

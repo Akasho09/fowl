@@ -71,7 +71,7 @@ export default function GuessGamePage() {
             />
             <button
               onClick={handleGuess}
-              className="w-full bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md transition"
+              className="w-full bg-green-500 hover:bg-green-600  px-4 py-2 rounded-md transition"
             >
               Guess
             </button>

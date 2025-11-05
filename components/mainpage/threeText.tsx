@@ -19,13 +19,13 @@ export default function ThreeTexts({ t1, t2, t3, t4, links = [], techs = [] }: t
     <div className="overflow-y-auto small-scrollbar text-xs tracking-wide relative transition-colors duration-300 ">
       <article className="h-[92dvh] mt-[3dvh] mb-[3dvh] flex flex-col  justify-between z-10 m-3">
         <header>
-          <h2 className="text-sm md:text-md font-bold !text-red-700 ">
+          <h2 className="text-sm md:text-md !font-jetB font-bold !text-red-700 p-1 border-l">
             {t1}
           </h2>
-          {t2 && <p className="italic mt-1">{t2}</p>}
+          {t2 && <p className="text-right mt-1">{t2}</p>}
         </header>
 
-        {t3 && <section className="italic mt-4 scroll-container">{t3}</section>}
+        {t3 && <section className=" mt-4 scroll-container">{t3}</section>}
 
         {t4 && <footer className="text-right mt-4 scroll-container">{t4}</footer>}
 

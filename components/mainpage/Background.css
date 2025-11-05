@@ -2,42 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes spin-planet-1 {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+  
 }
-
-
-@keyframes spin-planet-2 {
-  0% { transform: rotate(0deg);}
-  100% { transform: rotate(360deg);}
-}
-/* Repeat for all 9 planets */
-@keyframes spin-planet-3 { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-@keyframes spin-planet-4 { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-@keyframes spin-planet-5 { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-@keyframes spin-planet-6 { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-@keyframes spin-planet-7 { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-@keyframes spin-planet-8 { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-@keyframes spin-planet-9 { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
-
-.animate-spin-planet-1 { animation: spin-planet-1 4s linear infinite; }
-.animate-spin-planet-2 { animation: spin-planet-2 7s linear infinite; }
-.animate-spin-planet-3 { animation: spin-planet-3 8s linear infinite; }
-.animate-spin-planet-4 { animation: spin-planet-4 13s linear infinite; }
-.animate-spin-planet-5 { animation: spin-planet-5 12s linear infinite; }
-.animate-spin-planet-6 { animation: spin-planet-6 14s linear infinite; }
-.animate-spin-planet-7 { animation: spin-planet-7 16s linear infinite; }
-.animate-spin-planet-8 { animation: spin-planet-8 18s linear infinite; }
-.animate-spin-planet-9 { animation: spin-planet-9 20s linear infinite; }
-
-/* 
-@keyframes twinkle {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 1; }
-}
-
-.animate-twinkle {
-  animation: twinkle 2.5s infinite ease-in-out;
-} */

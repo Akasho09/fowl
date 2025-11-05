@@ -63,3 +63,20 @@ color: #ef4444 !important;
 
 so it overrides your global theme color.
 
+
+
+
+## app/(dashboard)/blogs/[id]/page.tsx
+Type error: Type 'BlogPageProps' does not satisfy the constraint 'PageProps'.
+  Types of property 'params' are incompatible.
+    Type '{ tag: string; }' is missing the following properties from type 'Promise<any>': then, catch, finally, [Symbol.toStringTag]
+
+Static worker exited with code: 1 and signal: null
+---
+
+
+export default function BlogPage({params}: {params: Promise<{ id: string }>}) {
+    const { id } = use(params);
+    const blog = blogs.find((b) => b.id === id);
+
+  if (!blog) {
