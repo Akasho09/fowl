@@ -35,13 +35,13 @@ export default function NavBar() {
     <button
       onClick={() => setIsOpen(!isOpen)}
       aria-label="Toggle navigation"
-      className="md:hidden fixed bottom-6 right-6 p-4 border rounded-full shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 z-50"
+      className="md:hidden fixed bottom-6 left-12 p-4 border rounded-full shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 z-50"
     >
       {isOpen ? <HiX size={22} /> : <HiMenu size={22} />}
     </button>
 
       {isOpen && (
-        <div className="md:hidden fixed bottom-20 right-4 rounded-lg p-4 w-64 shadow-lg z-40 text-xs bg-[var(--bg-color)]/80 backdrop-blur-sm">
+        <div className="md:hidden fixed bottom-20 left-24 rounded-lg p-4 w-64 shadow-lg z-40 text-xs bg-[var(--bg-color)]/80 backdrop-blur-sm">
           {navs.map((n, i) => {
             return (
               <Link

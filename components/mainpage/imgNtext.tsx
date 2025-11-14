@@ -25,14 +25,14 @@ export default function InfoCard({ img, txt, txt2, txt3, txt4 , txt5 }: InfoCard
             height={200}
             alt="Profile Image"
             quality={100}
-            className="rounded-full object-cover !transition-transform duration-500 hover:scale-110"
+            className="object-cover !transition-transform duration-500 scale-75 hover:scale-90"
           />
          }
-          <p className="shrink text-xs">{txt2}</p>
+        <p className="shrink text-xs">{txt2}</p>
 
         </div>
         <div>
-        <p className=" leading-relaxed text-xs ">{txt3}</p>
+        <p className=" leading-relaxed text-xs">{txt3}</p>
         </div>
 
 

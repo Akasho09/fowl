@@ -11,6 +11,7 @@ export default function Me(){
             AKASH AHMAD MALIK
           </p>
         </Link>
+
         <div className="flex pb-4"><SocialLinks /></div>
       </div>
     </div>

@@ -42,11 +42,11 @@ export default function BlogPage({params}: {params: Promise<{ id: string }>}) {
         </div>
 
         <header className="p-8 md:p-12 border-b">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight !font-jetB">
+          <h1 className="text-2xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight !font-jetB">
             {blog.title}
           </h1>
 
-          <div className="flex items-center space-x-4 text-sm">
+          <div className="flex items-center space-x-4 text-xs md:text-sm">
             <span className="font-semibold">By {blog.author}</span>
             <span className="h-4 w-px bg-gray-400"></span>
             <span>Published on {blog.date}</span>
@@ -54,14 +54,14 @@ export default function BlogPage({params}: {params: Promise<{ id: string }>}) {
         </header>
 
         <div className="p-8 md:p-12">
-          <div className="text-lg leading-relaxed font-light space-y-6 article-content !font-jetB">
+          <div className="text-sm md:text-lg leading-relaxed font-light space-y-6 article-content !font-jetB">
             {blog.content.map((line: string, index: number) => (
               <p key={index}>{line}</p>
             ))}
           </div>
         </div>
 
-        <footer className="p-8 md:p-12 border-t">
+        <footer className="p-8 md:p-12 border-t mb-16 md:mb-0">
           <p className="text-sm text-gray-600">
             Thank you for reading this post! Share your thoughts in the comments below.
           </p>

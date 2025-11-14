@@ -13,7 +13,7 @@ const planetData = [
 
 const PlanetOrbit = () => {
   return (
-    <div className="absolute inset-0 hidden md:flex items-center justify-center overflow-hidden pointer-events-none z-0">
+    <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none z-0">
       {/* Central Glow (Sun) */}
       <div className="w-20 h-20 bg-yellow-500 dark:bg-yellow-400 rounded-full absolute z-20 
         shadow-[0_0_100px_60px_rgba(255,255,120,0.95)] dark:shadow-[0_0_100px_50px_rgba(255,255,120,0.8)]

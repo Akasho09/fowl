@@ -42,7 +42,7 @@ export default function ColorPaletteHamburger() {
       <button
         onClick={() => setOpen(!open)}
         aria-label="Toggle color palette"
-        className="p-2 rounded-full border shadow-lg bg-white dark:bg-gray-900 hover:scale-105 transition-transform"
+        className="p-2 rounded-full border shadow-lg hover:scale-105 transition-transform"
       >
         <MdColorLens size={22} />
       </button>

@@ -69,7 +69,6 @@ export default function Page() {
       />
     </div>
     <div className="h-screen border-r w-[92vw] md:w-[20rem]">
-
       <ThreeTexts t1="CodeForces , GFGs etc :" t2="" />
     </div>
     </div>

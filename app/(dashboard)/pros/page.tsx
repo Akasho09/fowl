@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: "Projects" };
 
 export default function Projects() {
   return (
-     <div className="h-screen flex overflow-y-hidden overflow-x-visible">
+    <div className="h-screen flex overflow-y-hidden overflow-x-visible">
     <div className="h-screen border-r w-[92vw] md:w-[20rem]">
         <ProjectServer
           pname="DriftPro - Paytm for Desktop"
