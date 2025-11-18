@@ -4,7 +4,7 @@ export const p1data = [
   "Validation: Integrated Zod for robust input validation and data handling.",
   "Authentication: Ensured secure user access using JWT (JSON Web Tokens).",
   "Frontend: Developed with React.js for a dynamic and interactive user interface.",
-  "Deployment: Utilized Cloudflare for seamless backend deployment, scalability, and performance optimization, and Vercel for the frontend.",
+  "Deployment: Deployment with Cloudflare Workers, enabling a serverless, globally distributed, edge-fast backend. and Vercel for the frontend.",
 ];
 
 export const p2data = [
@@ -14,7 +14,7 @@ export const p2data = [
   "Architecture: Implemented a monorepo setup with Turborepo for scalability and performance.",
   "Database: Stored transaction data securely using PostgreSQL with Prisma ORM.",
   "UI: Designed an intuitive interface using Tailwind CSS.",
-  "Deployment: Dockerized the application and automated CI/CD workflows with GitHub Actions.",
+  "Deployment: Dockerized the application and automated CI/CD workflows with GitHub Actions. Deployed User App on Vercel and Bank Webhook on Render .",
 ];
 
 export const p3data = [
@@ -35,7 +35,7 @@ export const p4data = [
 ];
 
 export const p5data = [
-  "Feature: Apple Scab Estimation Using CNN and Grad-CAM (Aug 2025 – Present).",
+  "Feature: Apple Scab Estimation Using CNN and Grad-CAM.",
   "Model: Implemented a CNN achieving 90% accuracy in detecting Apple Scab from leaf images.",
   "Optimization: Applied data augmentation, dropout, and hyperparameter tuning to improve model generalization.",
 ];
