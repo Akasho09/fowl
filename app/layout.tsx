@@ -6,10 +6,10 @@ import Me from "@/components/mySelf";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Kode_Mono } from "next/font/google";
 import ColorPaletteMenu from "@/components/colorPallete";
 
- const kodeMono = Kode_Mono({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-kodemono", display: "swap", });
+import { Kode_Mono } from "next/font/google";
+const kodeMono = Kode_Mono({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-kodemono", display: "swap", });
 
 export const metadata: Metadata = {
   title: {
