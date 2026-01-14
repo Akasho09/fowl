@@ -2,13 +2,8 @@
   "name": "aksh",
   "version": "0.1.0",
   "private": true,
-<<<<<<< HEAD
   "scripts": {
-    "dev": "next dev --turbopack",
-=======
-    "scripts": {
     "dev": "next dev --turbopack --port 3001",
->>>>>>> 79bf8cb (sem7)
     "build": "next build",
     "start": "next start"
   },
