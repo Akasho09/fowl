@@ -1,19 +1,21 @@
-"use client";
 import SocialLinks from "./iconss";
 import Link from "next/link";
-export default function Me(){
-  return (
-    <div className="fixed top-0 h-[100dvh] md:w-[4rem] w-[8vw] border-r z-[50] bg-[var(--bg-color)]/80 backdrop-blur-sm"
-    >
-      <div className="flex flex-col items-center justify-between h-[100dvh]">
-        <Link href={"/"} className="pt-56 mt-2 whitespace-nowrap text-2xl font-jetB font-bold cursor-pointer">
-          <p className="-rotate-90 z-[10] !text-pink-700 md:w-[4rem] w-[8vw]">
-            AKASH AHMAD MALIK
-          </p>
-        </Link>
+const sidebarClass =
+  "fixed top-0 z-50 h-[100dvh] w-[8vw] md:w-16 border-r bg-[var(--bg-color)]/80 backdrop-blur-sm";
 
-        <div className="flex pb-4"><SocialLinks /></div>
+export default function Sidebar() {
+  return (
+    <aside className={sidebarClass}>
+      <div className="flex h-full flex-col items-center justify-between">
+        <Link href="/" className="mt-8 flex justify-center">
+          <span className="mt-2 vertical-text whitespace-nowrap text-xl sm:text-2xl font-jetB font-bold !text-pink-700">
+            AKASH AHMAD MALIK
+          </span>
+        </Link>
+        <div className="pb-4">
+          <SocialLinks />
+        </div>
       </div>
-    </div>
+    </aside>
   );
 }

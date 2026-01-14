@@ -16,8 +16,8 @@ interface InfoTableProps {
 
 
 export default function EducationPage() {
-  const SPIs = [7.14, 7.12, 6.91, 7.54, 8.26, 7.61];
-  const factor = [7, 6.5, 11.5, 12, 17.25, 17.25]; // credits
+  const SPIs = [7.14, 7.12, 6.91, 7.54, 8.26, 7.61 , 7.55];
+  const factor = [7, 6.5, 11.5, 12, 17.25, 17.25 , 22]; // credits
 
   let totalSpi = 0,
     divison = 0;

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function A() {
   return (
-    <div className="h-screen flex overflow-x-auto md:overflow-visible">
+    <div className="h-screen flex overflow-x-auto md:overflow-visible ">
       {/* Section 1 */}
       <div className="h-screen border-r w-[92vw] md:w-[20rem] flex">
         <InfoCard

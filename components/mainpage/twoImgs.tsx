@@ -1,5 +1,6 @@
-"use client";
 import Image from "next/image";
+import comp1 from "@/public/comp1.png";
+import comp2 from "@/public/emps.png";
 
 export default function TwoImages() {
   return (
@@ -7,12 +8,13 @@ export default function TwoImages() {
       <div className="h-screen flex flex-col items-center justify-start pt-8 p-2 relative z-10">
         {/* Top Image */}
         <Image
-          src="/comp1.png"
+          src={comp1}
           alt="Top Image"
           width={300}
           height={300}
           className="border-b transition-all duration-500"
           style={{ filter: "var(--img-filter)" }}
+          placeholder="blur"
         />
 
         {/* Bounce Area */}
@@ -27,7 +29,7 @@ export default function TwoImages() {
 
         {/* Bottom Image */}
         <Image
-          src="/emps.png"
+          src={comp2}
           alt="Bottom Image"
           width={300}
           height={300}

@@ -1,64 +1,72 @@
-import { FaLinkedin, FaGithub, FaInstagram, FaEnvelope } from "react-icons/fa";
+import {
+  FaLinkedin,
+  FaGithub,
+  FaInstagram,
+  FaEnvelope,
+} from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import { FaPhone } from "react-icons/fa6";
+import Link from "next/link";
 
-const SocialLinks = () => {
+const socials = [
+  {
+    href: "https://www.linkedin.com/in/akash786/",
+    icon: FaLinkedin,
+    hover: "group-hover:fill-blue-500",
+    label: "LinkedIn",
+    external: true,
+  },
+  {
+    href: "https://leetcode.com/u/aakashbwd/",
+    icon: SiLeetcode,
+    hover: "group-hover:fill-yellow-500",
+    label: "LeetCode",
+    external: true,
+  },
+  {
+    href: "https://github.com/Akasho09",
+    icon: FaGithub,
+    hover: "group-hover:fill-slate-400",
+    label: "GitHub",
+    external: true,
+  },
+  {
+    href: "https://www.instagram.com/akash.o.9/",
+    icon: FaInstagram,
+    hover: "group-hover:fill-pink-500",
+    label: "Instagram",
+    external: true,
+  },
+  {
+    href: "tel:+919103597816",
+    icon: FaPhone,
+    hover: "group-hover:fill-green-500",
+    label: "Phone",
+  },
+  {
+    href: "mailto:aakashbwd@gmail.com",
+    icon: FaEnvelope,
+    hover: "group-hover:fill-red-400",
+    label: "Email",
+  },
+];
+
+export default function SocialLinks() {
   return (
-    <div className="flex flex-col gap-4 text-lg">
-      {/* LinkedIn */}
-      <a
-        href="https://www.linkedin.com/in/akash786/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-2 hover:text-blue-500 transition-colors duration-300 "
-      >
-        <FaLinkedin className="text-xl" />
-      </a>
-
-      {/* LeetCode */}
-      <a
-        href="https://leetcode.com/u/aakashbwd/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-2 hover:text-yellow-500 transition-colors duration-300 "
-      >
-        <SiLeetcode className="text-xl" />
-      </a>
-
-      {/* GitHub */}
-      <a
-        href="https://github.com/Akasho09"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-2 hover:text-gray-600 transition-colors duration-300 "
-      >
-        <FaGithub className="text-xl" />
-      </a>
-
-      {/* Instagram */}
-      <a
-        href="https://www.instagram.com/akash.o.9/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-2 hover:text-pink-500 transition-colors duration-300 "
-      >
-        <FaInstagram className="text-xl" />
-      </a>
-
-      {/* Phone */}
-      <a href="tel:+919103597816" className="flex items-center gap-2 hover:text-green-500 transition-colors duration-300  ">
-        <FaPhone className="text-xl" />
-      </a>
-
-      {/* Email */}
-      <a
-        href="mailto:aakashbwd@gmail.com"
-        className="flex items-center gap-2 hover:text-red-500 transition-colors duration-300  "
-      >
-        <FaEnvelope className="text-xl" />
-      </a>
+    <div className="flex flex-col gap-4">
+      {socials.map(({ href, icon: Icon, hover, label, external }) => (
+        <Link
+          key={label}
+          href={href}
+          target={external ? "_blank" : undefined}
+          rel={external ? "noopener noreferrer" : undefined}
+          className="group flex items-center gap-2"
+        >
+        <Icon
+          className={`text-2xl transition-colors duration-300 ${hover}`}
+        />
+        </Link>
+      ))}
     </div>
   );
-};
-
-export default SocialLinks;
+}

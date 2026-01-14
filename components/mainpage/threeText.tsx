@@ -51,6 +51,7 @@ export default function ThreeTexts({ t1, t2, t3, t4, links = [], techs = [] }: t
                   rel="noopener noreferrer"
                   aria-label={`Open link: ${a.l2}`}
                   className="border-b-2 hover:bg-blue-500"
+                  replace
                 >
                   <div
                     className={`cursor-pointer`}

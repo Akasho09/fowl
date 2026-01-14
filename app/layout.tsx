@@ -44,16 +44,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${kodeMono.variable}`}
+      className={`${kodeMono.variable} `}
     >
       <head>
+        <Script src="/hScroll.js" strategy="afterInteractive" />
+
         <meta
           name="google-site-verification"
           content="uhUSq3S9zTC8jQ-rP1KM_Ne-ZPVdXiya5FtSIS2RCkk"
         />
       <meta name="google-adsense-account" content="ca-pub-6934180729383134"></meta>
       
-        <Script src="/hScroll.js" strategy="afterInteractive" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-LYJ3E16RSB"
           strategy="afterInteractive"
@@ -66,11 +67,12 @@ export default function RootLayout({
             gtag('config', 'G-LYJ3E16RSB');
           `}
         </Script>
+
       </head>
-<body className="new-scrollbar transition-colors "
+<body className="small-scrollbar transition-colors "
         style={{ background: "var(--bg-color)" , borderColor : "var(--border-color)", color : "var(--text-color)"}}
 >
-  <div className="relative min-h-screen overflow-auto md:overflow-visible z-20 theme">
+  <div className="relative min-h-screen z-20 theme font-semibold">
     <div className="fixed inset-0 z-10">
       <PlanetOrbit />
     </div>
@@ -84,7 +86,7 @@ export default function RootLayout({
       
       <ColorPaletteMenu/>
 
-      <main className="h-screen flex-grow z-20 font-kodeMono">
+      <main className="h-screen flex-grow z-20 font-kodeMono ">
         {children}
         <Analytics />
         <SpeedInsights />

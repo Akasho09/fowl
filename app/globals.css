@@ -21,6 +21,57 @@ body, .theme * {
   border-color: var(--border-color);
   transition: background-color 0.5s, color 0.5s, border-color 0.5s;
 }
+
+.vertical-text {
+  writing-mode: sideways-lr;
+}
+
+/* Firefox */
+.small-scrollbar {
+  scrollbar-gutter: stable;
+  scrollbar-width: thin; /* thin scrollbar */
+  scrollbar-color: #acc6fb transparent; /* thumb color, track color */
+}
+
+/* Chrome, Edge, Safari */
+.small-scrollbar::-webkit-scrollbar {
+  width: 4px;  /* thin width */
+  height: 4px; /* horizontal scrollbar */
+}
+
+.small-scrollbar::-webkit-scrollbar-track {
+  background: transparent; /* track color */
+}
+
+.small-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #acc6fb; /* thumb color */
+  border-radius: 10px;       /* rounded corners */
+  border: 1px solid transparent; /* optional padding */
+}
+
+/* Optional: hover effect */
+.small-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #7fa8f3;
+}
+
+@keyframes bounce-ball {
+  0%, 100% {
+    top: 0; /* top of parent div */
+    animation-timing-function: ease-in;
+  }
+  50% {
+    top: calc(100% - 12px); /* stays inside parent div */
+    animation-timing-function: ease-out;
+  }
+}
+
+.animate-bounce-ball {
+  position: absolute;
+  top: 0;
+  animation: bounce-ball 2.5s infinite;
+}
+
+
 /* 🌥️ Dim Theme — soft bluish-gray with warm center */
 .theme-light {
   --bg-color: radial-gradient(circle at center, #fdfcfb 0%, #c2c2dd 50%, #d6d8db 100%);
@@ -85,48 +136,3 @@ body, .theme * {
   --border-color: #4ab6a0;
   --ball-bg: #2ea191;
 }
-
-/* Firefox */
-.small-scrollbar {
-  scrollbar-width: thin; /* thin scrollbar */
-  scrollbar-color: #acc6fb transparent; /* thumb color, track color */
-}
-
-/* Chrome, Edge, Safari */
-.small-scrollbar::-webkit-scrollbar {
-  width: 4px;  /* thin width */
-  height: 4px; /* horizontal scrollbar */
-}
-
-.small-scrollbar::-webkit-scrollbar-track {
-  background: transparent; /* track color */
-}
-
-.small-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #acc6fb; /* thumb color */
-  border-radius: 10px;       /* rounded corners */
-  border: 1px solid transparent; /* optional padding */
-}
-
-/* Optional: hover effect */
-.small-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #7fa8f3;
-}
-
-@keyframes bounce-ball {
-  0%, 100% {
-    top: 0; /* top of parent div */
-    animation-timing-function: ease-in;
-  }
-  50% {
-    top: calc(100% - 12px); /* stays inside parent div */
-    animation-timing-function: ease-out;
-  }
-}
-
-.animate-bounce-ball {
-  position: absolute;
-  top: 0;
-  animation: bounce-ball 2.5s infinite;
-}
-

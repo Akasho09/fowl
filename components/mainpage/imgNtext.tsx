@@ -42,7 +42,6 @@ export default function InfoCard({ img, txt, txt2, txt3, txt4 , txt5 }: InfoCard
           )}
         </div>
 
-
         <div>
         <p className=" leading-relaxed text-xs ">{txt5}</p>
         </div> 

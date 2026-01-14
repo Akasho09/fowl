@@ -16,7 +16,7 @@ const Home = () => {
   };
 
   return (
-  <div className="h-screen flex overflow-x-auto md:overflow-visible">
+  <div className="h-screen flex overflow-x-visible overflow-y-hidden font-semibold">
   <div className="h-screen border-r w-[92vw] md:w-[20rem]">
     <TeenTexts
               t1={content.greeting}
