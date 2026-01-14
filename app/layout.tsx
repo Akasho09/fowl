@@ -72,7 +72,7 @@ export default function RootLayout({
 <body className="small-scrollbar transition-colors "
         style={{ background: "var(--bg-color)" , borderColor : "var(--border-color)", color : "var(--text-color)"}}
 >
-  <div className="relative min-h-screen z-20 theme font-semibold">
+  <div className="relative min-h-screen z-20 theme">
     <div className="fixed inset-0 z-10">
       <PlanetOrbit />
     </div>
