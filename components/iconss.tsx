@@ -7,7 +7,6 @@ import {
 import { SiLeetcode } from "react-icons/si";
 import { FaPhone } from "react-icons/fa6";
 import Link from "next/link";
-
 const socials = [
   {
     href: "https://www.linkedin.com/in/akash786/",
