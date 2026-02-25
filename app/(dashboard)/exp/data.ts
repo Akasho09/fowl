@@ -1,0 +1,38 @@
+export const panels = [
+  {
+    index: "02",
+    title: "Problem Solver",
+    stat: "700+",
+    statLabel: "Problems Solved",
+    body: "LeetCode, GFG, Codeforces — consistent practice across difficulty levels. JEE Advanced AIR 26,380 out of 200k+ candidates.",
+    href: "/dsa",
+    linkLabel: "View DSA Profile",
+  },
+  {
+    index: "03",
+    title: "Ships Real Projects",
+    stat: "5+",
+    statLabel: "Production Projects",
+    body: "DriftPro (fintech wallet), MediumPro (publishing platform), Apple Scab CNN, College DBMS — not just tutorials.",
+    href: "/pros",
+    linkLabel: "View Projects",
+  },
+  {
+    index: "04",
+    title: "Full-Stack & DevOps",
+    stat: "20+",
+    statLabel: "Technologies",
+    body: "React, Next.js, Node, PostgreSQL, Redis, Docker, Turborepo, GitHub Actions CI/CD, Cloudflare Workers.",
+    href: "/skills",
+    linkLabel: "View Skills",
+  },
+  {
+    index: "05",
+    title: "Ready to Contribute",
+    stat: "FTE",
+    statLabel: "Seeking Full-Time",
+    body: "Placed and actively seeking a full-time SWE role. Final year at Jamia Millia Islamia. CGPA 7.55. FFE Scholar 2022.",
+    href: "mailto:aakashbwd@gmail.com",
+    linkLabel: "Get in Touch",
+  },
+];

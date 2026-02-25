@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { IoIosArrowDown } from "react-icons/io";
+import { ChevronDown } from "lucide-react";
 import { Issue } from "@/lib/github";
 import Link from "next/link";
 
@@ -10,7 +10,7 @@ export default function ProjectCardClient({ issues }: { issues: Issue[] | null }
     <div className="pt-4">
       <button onClick={() => setOpen(!open)} className="flex !font-jetB items-center gap-2 text-sm font-semibold !text-red-900">
         Want to Contribute!
-        <IoIosArrowDown
+        <ChevronDown
           className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}
         />
       </button>

@@ -15,7 +15,6 @@ type GitHubIssue = {
   html_url: string;
 };
 
-
 interface GitHubUser {
   login: string;
   avatar_url: string;
@@ -34,12 +33,11 @@ interface GitHubUser {
   repos_url : string
 }
 
+const token = process.env.GIT_TOKEN;
 
-
-  const token = process.env.GIT_TOKEN;
-
-  const octokit = new Octokit({ auth: token });
-
+const octokit = new Octokit({
+      auth: token || undefined, 
+});
 
 export async function getUser(username: string): Promise<GitHubUser | null> {
 
@@ -65,7 +63,6 @@ return {
     return null;
   }
 }
-
 
 export async function getIssues(repo: string): Promise<Issue[] | null> {
   try {

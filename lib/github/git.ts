@@ -9,7 +9,3 @@ export const getRepos = async () => {
 
   return response.data; // return only repos data
 };
-
-
-
-

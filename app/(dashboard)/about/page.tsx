@@ -8,20 +8,21 @@ export const metadata: Metadata = {
 export default function A() {
   return (
     <div className="h-screen flex overflow-x-auto md:overflow-visible ">
+      
       {/* Section 1 */}
       <div className="h-screen border-r w-[92vw] md:w-[20rem] flex">
         <InfoCard
-          txt="I’m a Full-Stack Developer"
-          txt3="I’m a passionate full-stack developer with strong expertise in C++, JavaScript, TypeScript, and SQL. I love building modern, scalable web applications using React, Next.js, Node.js, and Express.js. With a solid foundation in computer science fundamentals like data structures, algorithms, and operating systems, I aim to craft performant, maintainable, and user-focused solutions."
+          txt="Full-Stack Engineer"
+          txt3="I build end-to-end systems — from polished frontend interfaces to scalable backend architecture. Strong foundations in DSA, OS, DBMS, and Distributed Systems guide how I design reliable, production-ready applications."
         />
       </div>
 
       {/* Section 2 */}
       <div className="h-screen border-r w-[92vw] md:w-[20rem] flex">
         <InfoCard
-          txt="I’m a Problem Solver"
-          txt2="On the backend, I work extensively with MongoDB, MySQL, PostgreSQL, and Prisma ORM to design secure, efficient data architectures. I leverage tools like Docker, Redis, and AWS to enhance scalability and reliability, while WebSockets enable me to build real-time interactive systems."
-          txt4="As I enter my final year of B.Tech, I’m actively seeking a full-time Software Engineering role where I can contribute to impactful products, grow with a talented team, and keep pushing my technical boundaries."
+          txt="Backend + DevOps Focused"
+          txt2="I design secure APIs with PostgreSQL, Prisma, and MongoDB, implement authentication (JWT/OAuth), caching with Redis, and rate limiting. I containerize with Docker and automate CI/CD with GitHub Actions."
+          txt4="I think beyond code — performance, scalability, and clean deployments matter."
         />
       </div>
 
@@ -29,13 +30,20 @@ export default function A() {
       <div className="h-screen border-r w-[92vw] md:w-[20rem] flex">
         <InfoCard
           img="/ak2.png"
-          txt="Let’s Connect & Build Something Great!"
-          txt3="I thrive in collaborative environments where innovation meets execution. Sharing knowledge, mentoring peers, and learning from experienced developers are values I deeply believe in."
-          txt2="With a growth-driven mindset and curiosity for new technologies, I’m ready to take on new challenges and contribute meaningfully to the tech community."
+          txt="Performance-Driven"
+          txt3="I build fast, responsive applications using React, Next.js, and TypeScript. Optimized my portfolio to 100/100 Core Web Vitals through code-splitting and rendering optimizations."
+          txt2="Focused on delivering smooth UX backed by efficient system design."
         />
       </div>
 
-      <div></div>
+      {/* Section 4 */}
+      <div className="h-screen border-r w-[92vw] md:w-[20rem] flex">
+        <InfoCard
+          txt="Let’s Build Something Meaningful"
+          txt3="Seeking a full-time Software Engineering role where I can contribute across the stack — from UI to infrastructure."
+          txt2="New Delhi, India • Open to Relocation"
+        />
+      </div>
     </div>
   );
 }

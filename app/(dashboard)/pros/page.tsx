@@ -23,7 +23,7 @@ export default function Projects() {
       <ProjectServer
         pname="Apple Scab Estimation Using CNN"
         desc={p5data}
-        date="Aug 2025 – Present"
+        date="Aug 2025 – Jan 2026"
         techs={[
           "Python", "TensorFlow", "CNN", "Data Augmentation", "Grad-CAM", "NumPy", "Pandas", "Matplotlib",
         ]}
@@ -39,7 +39,7 @@ export default function Projects() {
           pname="MediumPro - Blogging Web App"
           desc={p1data}
           date="Dec 2024 - Jan 2025"
-          techs={[ "React", "Zod", "Debouncing", "Cloudflare Workers", "Hono", "PostgreSQL", "Prisma ORM", "TypeScript", "Tailwind CSS", "JWT Auth", "GitHub CI/CD Workflows",
+          techs={[ "React.js", "Zod", "Debouncing", "Cloudflare Workers", "Hono", "PostgreSQL", "Prisma ORM", "TypeScript", "Tailwind CSS", "JWT Auth", "GitHub CI/CD Workflows",
           ]}
           links={[
             { linkName: "⚙️ Github", href: "https://github.com/Akasho09/mediumpro" },

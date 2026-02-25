@@ -3,18 +3,21 @@ import Image from "next/image";
 import { blogs } from "../blogs";
 import { use } from "react";
 
-
-export default function BlogPage({params}: {params: Promise<{ id: string }>}) {
-    const { id } = use(params);
-    const blog = blogs.find((b) => b.id === id);
+export default function BlogPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
+  const blog = blogs.find((b) => b.id === id);
 
   if (!blog) {
     return (
-      <main className="min-h-screen flex items-center justify-center p-8">
-        <div className="text-center">
-          <p className="text-lg mb-4 text-gray-500">Blog not found</p>
-          <Link href="/blogs" className="text-red-500 font-semibold hover:underline">
-            ← Back to All Blogs
+      <main className="h-screen flex items-center justify-center font-jetB text-xs tracking-wide">
+        <div className="flex flex-col gap-3 items-start">
+          <span className="opacity-40 text-[9px] tracking-[0.25em] uppercase">— 404</span>
+          <p className="font-bold text-sm">Blog not found.</p>
+          <Link
+            href="/blogs"
+            className="inline-flex items-center gap-1 uppercase border rounded-sm px-3 py-1.5 text-[9px] tracking-[0.1em] transition-all duration-200"
+          >
+            ← All Blogs
           </Link>
         </div>
       </main>
@@ -22,50 +25,58 @@ export default function BlogPage({params}: {params: Promise<{ id: string }>}) {
   }
 
   return (
-    <main className="min-w-4xl min-h-screen h-screen flex border-r">
-      <article className="w-full overflow-y-auto small-scrollbar p-2 mt-8">
-        <div className="mb-4 font-jetB">
-          <Link href="/blogs" className="!text-red-500 font-semibold">
-            ← Back to All Blogs
+    <main className="h-screen flex border-r font-jetB">
+      <article className="w-full overflow-y-auto small-scrollbar">
+
+        {/* ── Back link ── */}
+        <div className="px-8 pt-8 pb-4">
+          <Link
+            href="/blogs"
+            className="inline-flex items-center gap-1 text-[9px] tracking-[0.1em] uppercase border rounded-sm px-3 py-1.5 transition-all duration-200"
+          >
+            ← All Blogs
           </Link>
         </div>
 
+        {/* ── Cover image ── */}
         <div className="relative w-full overflow-hidden">
           <Image
-            src="/blog.png"
+            src={"/blog.png"}
             alt={blog.title}
             width={1000}
             height={500}
-            className="w-full h-auto object-cover rounded-xl"
+            className="w-full h-auto object-cover opacity-80"
             priority
           />
         </div>
 
-        <header className="p-8 md:p-12 border-b">
-          <h1 className="text-2xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight !font-jetB">
+        {/* ── Header ── */}
+        <header className="px-8 py-10 border-b">
+          <p className="uppercase opacity-40 mb-3">— Article</p>
+          <h1 className="!text-red-700 text-2xl font-bold leading-snug pl-3 border-l-2 mb-6">
             {blog.title}
           </h1>
-
-          <div className="flex items-center space-x-4 text-xs md:text-sm">
-            <span className="font-semibold">By {blog.author}</span>
-            <span className="h-4 w-px bg-gray-400"></span>
-            <span>Published on {blog.date}</span>
+          <div className="flex items-center gap-3 text-[10px] opacity-50">
+            <span>{blog.author}</span>
+            <span className="h-3 w-px bg-current opacity-40" />
+            <span>{blog.date}</span>
           </div>
         </header>
 
-        <div className="p-8 md:p-12">
-          <div className="text-sm md:text-lg leading-relaxed font-light space-y-6 article-content !font-jetB">
-            {blog.content.map((line: string, index: number) => (
-              <p key={index}>{line}</p>
-            ))}
-          </div>
+        {/* ── Content ── */}
+        <div className="px-8 py-10 text-xs leading-relaxed space-y-5 opacity-80 max-w-3xl">
+          {blog.content.map((line: string, index: number) => (
+            <p key={index}>{line}</p>
+          ))}
         </div>
 
-        <footer className="p-8 md:p-12 border-t mb-16 md:mb-0">
-          <p className="text-sm text-gray-600">
-            Thank you for reading this post! Share your thoughts in the comments below.
+        {/* ── Footer ── */}
+        <footer className="px-8 py-8 border-t mb-16 md:mb-0">
+          <p className="font-playfair italic text-[10px] opacity-40 text-right pr-3 border-r-2">
+            Thank you for reading.
           </p>
         </footer>
+
       </article>
     </main>
   );

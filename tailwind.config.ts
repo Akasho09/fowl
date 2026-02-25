@@ -22,6 +22,7 @@ export default {
       fontFamily: {
         kodeMono: ['var(--font-kodemono)', 'monospace'],
         jetB: ['jetB', 'monospace'],
+        playfair: ['playfair', 'jetB'],
       },
       keyframes: {
         'bounce-x': {

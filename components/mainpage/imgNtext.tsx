@@ -6,46 +6,73 @@ interface InfoCardProps {
   txt2?: string;
   txt3?: string;
   txt4?: string;
-  txt5? : string
+  txt5?: string;
 }
 
-export default function InfoCard({ img, txt, txt2, txt3, txt4 , txt5 }: InfoCardProps) {
+export default function InfoCard({ img, txt, txt2, txt3, txt4, txt5 }: InfoCardProps) {
   return (
-    <div className="h-screen overflow-y-auto overflow-x-auto small-scrollbar w-[95vw] md:w-[20rem] md:text-sm/6 text-sm tracking-wide relative transition-colors duration-300">
-      <div className="h-full flex flex-col justify-between py-16 px-2 relative z-10 text-wrap">
+    <div className="
+      group relative
+      h-screen w-[92vw] md:w-[20rem]
+      overflow-y-auto overflow-x-hidden small-scrollbar
+      font-jetB text-xs tracking-wide
+      transition-colors duration-300
+    ">
+      <div className="h-full flex flex-col justify-between py-14 px-6 gap-6">
+        <h2 className="
+          font-bold text-sm leading-snug
+          pl-3 border-l-2 !text-red-700
+        ">
+          {txt}
+        </h2>
 
-      <p className="flex md:text-md font-bold !font-jetB !text-red-700 pb-1 w-fit border-l p-1">
-            {txt}
-      </p>
-
-        <div className="flex justify-center items-center">
-         { img && <Image
-            src={img}
-            width={200}
-            height={200}
-            alt="Profile Image"
-            quality={100}
-            className="object-cover !transition-transform duration-500 scale-75 hover:scale-90"
-          />
-         }
-        <p className="shrink text-xs">{txt2}</p>
-
-        </div>
-        <div>
-        <p className=" leading-relaxed text-xs">{txt3}</p>
-        </div>
-
-
-        <div className="">
-          {txt4 && (
-            <p className="leading-relaxed text-xs ">{txt4}</p>
-          )}
-        </div>
-
-        <div>
-        <p className=" leading-relaxed text-xs ">{txt5}</p>
-        </div> 
+        {/* ── Image + txt2 ── */}
+        {(img || txt2) && (
+          <div className="flex flex-col gap-4">
+            {img && (
+              <div className="relative w-fit">
+                <Image
+                  src={img}
+                  width={180}
+                  height={180}
+                  alt="Profile"
+                  quality={100}
+                  className="object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-500 scale-95 hover:scale-100"
+                />
+                {/* subtle gold corner accent */}
+                <span className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-gold/40" />
+              </div>
+            )}
+            {txt2 && (
+              <p className="leading-relaxed opacity-70">{txt2}</p>
+            )}
           </div>
-        </div>
+        )}
+
+        {/* ── txt3 ── */}
+        {txt3 && (
+          <div className="flex flex-col gap-2">
+            <div className="w-6 h-px " />
+            <p className="leading-relaxed opacity-60">{txt3}</p>
+          </div>
+        )}
+
+        {/* ── txt4 ── */}
+        {txt4 && (
+          <p className="
+            leading-relaxed italic
+            text-right pr-3 border-r-2  font-playfair
+          ">
+            {txt4}
+          </p>
+        )}
+
+        {/* ── txt5 ── */}
+        {txt5 && (
+          <p className="leading-relaxed opacity-50 ">{txt5}</p>
+        )}
+
+      </div>
+    </div>
   );
 }

@@ -10,55 +10,61 @@ interface BlogCardProps {
   date: string;
 }
 
-export default function BlogCard({
-  id,
-  title,
-  description,
-  author,
-  date,
-}: BlogCardProps) {
+export default function BlogCard({ id, title, description, image, author, date }: BlogCardProps) {
   return (
-    <div 
-      className="w-[92dvw] md:w-[20rem]"
-    >
-    <div className="overflow-y-auto small-scrollbar text-xs tracking-wide relative transition-colors duration-300 !font-jetB">
-      <article className="h-[92dvh] mt-[3dvh] mb-[3dvh] flex flex-col  justify-between z-10 m-3">
-        <div className="mt-8 relative aspect-video overflow-hidden ">
-            <Image 
-              className="p-2 absolute inset-0 h-full object-cover opacity-80 transition-opacity duration-300 group-hover:opacity-100" 
-              src="/blog.png" 
-              alt={title} 
-              width={300}
-              height={100}
-            />
+    <div className="
+      group relative
+      w-[92dvw] md:w-[20rem] flex-shrink-0
+      border-r
+      font-jetB text-xs tracking-wide
+    ">
+      <article className="h-[92dvh] mt-[3dvh] mb-[3dvh] mx-4 flex flex-col justify-between overflow-y-auto small-scrollbar">
+
+        {/* ── Image ── */}
+        <div className="relative w-full aspect-video overflow-hidden">
+          <Image
+            src={image ?? "/blog.png"}
+            alt={title}
+            fill
+            className="object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-500"
+          />
         </div>
 
-        <div className="p-2 flex flex-col flex-grow">
-          <Link className="text-xl  uppercase mb-3 leading-snug tracking-tighter underline"
-                href={`/blogs/${id}`}
+        {/* ── Body ── */}
+        <div className="flex flex-col gap-3 flex-grow py-2">
+          <Link
+            href={`/blogs/${id}`}
+            className="!text-red-700 font-bold text-sm leading-snug pl-3 border-l-2"
           >
             {title}
           </Link>
-          
-          <p className="line-clamp-3 text-sm mb-4 flex-grow">
+
+          <p className="line-clamp-4 leading-relaxed opacity-60 text-[11px]">
             {description}
           </p>
+        </div>
 
-            <Link className="text-right py-2 px-3 font-extrabold text-xs uppercase tracking-widest underline"
-                href={`/blogs/${id}`}
-            >
-              ...Read More
-            </Link>
-        </div>
-        
-        <div className="p-4 m-1 border-t-4 mt-auto ">
-          <div className="flex justify-between items-center text-xs font-bold font-kodeMono">
-            <span>{date}</span>
-            <span className="ml-4 ">{author}</span>
+        {/* ── Footer ── */}
+        <div className="flex items-center justify-between border-t pt-3">
+          <div className="flex flex-col gap-0.5">
+            <span className="text-[9px] tracking-[0.15em] uppercase opacity-40">{date}</span>
+            <span className="text-[10px] opacity-60">{author}</span>
           </div>
+
+          <Link
+            href={`/blogs/${id}`}
+            className="
+              inline-flex items-center gap-1
+              text-[9px] tracking-[0.1em] uppercase
+              border rounded-sm px-2.5 py-1
+              transition-all duration-200
+            "
+          >
+            <span>↗</span> Read
+          </Link>
         </div>
+
       </article>
-      </div>
     </div>
   );
 }

@@ -8,7 +8,7 @@ export default function Sidebar() {
     <aside className={sidebarClass}>
       <div className="flex h-full flex-col items-center justify-between">
         <Link href="/" className="mt-8 flex justify-center">
-          <span className="mt-2 vertical-text whitespace-nowrap text-xl sm:text-2xl font-jetB font-bold !text-pink-700">
+          <span className="mt-2 vertical-text whitespace-nowrap text-xl sm:text-2xl font-jetB font-bold !text-red-700">
             AKASH AHMAD MALIK
           </span>
         </Link>

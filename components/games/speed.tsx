@@ -1,12 +1,13 @@
 "use client";
+
 import { useState, useEffect, useRef } from "react";
 
 export default function ClickSpeedGame() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState({ top: 0, left: 0 });
-  const [score, setScore] = useState(0);
+  const arenaRef              = useRef<HTMLDivElement>(null);
+  const [position, setPosition]   = useState({ top: 0, left: 0 });
+  const [score, setScore]         = useState(0);
   const [highscore, setHighscore] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(10);
+  const [timeLeft, setTimeLeft]   = useState(10);
   const [gameActive, setGameActive] = useState(false);
   const [buttonSize, setButtonSize] = useState(48);
 
@@ -22,74 +23,91 @@ export default function ClickSpeedGame() {
     return () => clearTimeout(timer);
   }, [timeLeft, gameActive, score]);
 
-  const moveButton = () => {
-    if (!containerRef.current) return;
-    const container = containerRef.current;
+  const moveTarget = (size = buttonSize) => {
+    if (!arenaRef.current) return;
+    const { clientWidth: w, clientHeight: h } = arenaRef.current;
+    setPosition({
+      top:  Math.random() * Math.max(0, h - size),
+      left: Math.random() * Math.max(0, w - size),
+    });
+  };
 
-    const maxTop = Math.max(0, container.clientHeight - buttonSize);
-    const maxLeft = Math.max(0, container.clientWidth - buttonSize);
-
-    const top = Math.random() * maxTop;
-    const left = Math.random() * maxLeft;
-
-    setPosition({ top, left });
-
+  const handleClick = () => {
+    if (!gameActive) return;
     setScore((prev) => {
-      const newScore = prev + 1;
-      setHighscore((hs) => (newScore > hs ? newScore : hs));
-
-      // shrink button every 5 points (min size: 24px)
-      setButtonSize(() => Math.max(24, 48 - Math.floor(newScore / 5) * 4));
-      return newScore;
+      const next = prev + 1;
+      setHighscore((hs) => (next > hs ? next : hs));
+      const newSize = Math.max(24, 48 - Math.floor(next / 5) * 4);
+      setButtonSize(newSize);
+      moveTarget(newSize);
+      return next;
     });
   };
 
   const startGame = () => {
     setScore(0);
     setTimeLeft(10);
-    setGameActive(true);
     setButtonSize(48);
-    moveButton();
+    setGameActive(true);
+    // wait one tick so arenaRef is visible and has dimensions
+    setTimeout(() => moveTarget(48), 0);
   };
 
   return (
-    <div
-      ref={containerRef}
-      className="relative flex flex-col min-h-screen w-[92dvw] p-2 md:w-[20rem] text-sm overflow-hidden"
-    >
-      <div className="h-1/6 my-8">
-        <p className="font-bold text-base m-2"> 🎯 Clicking Speed Game</p>
+    <div className="flex flex-col w-[92dvw] md:w-[20rem] h-full font-jetB text-xs tracking-wide p-4 gap-4">
+
+      {/* Stats */}
+      <div className="flex gap-6 flex-shrink-0">
+        <div className="flex flex-col gap-0.5">
+          <span className="uppercase opacity-40">Score</span>
+          <span className="font-bold tabular-nums">{score}</span>
+        </div>
+        <div className="flex flex-col gap-0.5">
+          <span className="uppercase opacity-40">Best</span>
+          <span className="font-bold tabular-nums">{highscore}</span>
+        </div>
+        <div className="flex flex-col gap-0.5 ml-auto text-right">
+          <span className="uppercase opacity-40">Time</span>
+          <span className="font-bold tabular-nums">{timeLeft}s</span>
+        </div>
       </div>
 
-      <div className="text-base font-semibold">
-        <p>Score: {score}</p>
-        <p>Highscore: {highscore}</p>
-        <p className={gameActive ? "!text-red-500" : "text-green-500"}>
-          Time: {timeLeft}s
-        </p>
-      </div>
-
+      {/* Start button */}
       {!gameActive && (
         <button
           onClick={startGame}
-              className="mt-8 bg-green-500 hover:bg-green-600  text-white px-4 py-2 rounded-md transition"
+          className="flex-shrink-0 w-full border rounded-sm px-4 py-2 uppercase transition-opacity hover:opacity-60 !text-blue-500"
         >
-          Start Game
+          {score > 0 ? "Play Again" : "Start Game"}
         </button>
       )}
 
-      {gameActive && (
-        <button
-          onClick={moveButton}
-          className="mt-8 absolute bg-red-500 rounded-full transition-all shadow-md active:scale-90"
-          style={{
-            top: `${position.top}px`,
-            left: `${position.left}px`,
-            width: `${buttonSize}px`,
-            height: `${buttonSize}px`,
-          }}
-        />
-      )}
+      {/* Arena — takes remaining height, click target lives here */}
+      <div
+        ref={arenaRef}
+        className="relative flex-1 border rounded-sm overflow-hidden"
+      >
+        {gameActive && (
+          <button
+            onClick={handleClick}
+            className="bg-blue-500 absolute rounded-full border transition-all duration-75 opacity-80 hover:opacity-100 active:scale-90"
+            style={{
+              top:    position.top,
+              left:   position.left,
+              width:  buttonSize,
+              height: buttonSize,
+            }}
+          />
+        )}
+
+        {!gameActive && score > 0 && (
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-1">
+            <span className="font-bold text-2xl tabular-nums">{score}</span>
+            <span className="uppercase opacity-40">clicks in 10s</span>
+          </div>
+        )}
+      </div>
+
     </div>
   );
 }

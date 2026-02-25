@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* right arrow */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
 
 :root {
   --bg-color: #ffffff;
@@ -10,10 +14,14 @@
   --ball-bg: #000;
 }
 
+html {
+  font-size: 90%;
+}
+
 body {
   height: 100%; 
   overflow:hidden;
-  background-color: var(--bg-color);
+  background: var(--bg-color);
 }
 
 body, .theme * {
@@ -73,32 +81,32 @@ body, .theme * {
 
 
 /* 🌥️ Dim Theme — soft bluish-gray with warm center */
-.theme-light {
-  --bg-color: radial-gradient(circle at center, #fdfcfb 0%, #c2c2dd 50%, #d6d8db 100%);
+:root[data-theme="theme-light"] {
+  --bg-color: radial-gradient(circle at center, rgb(223, 233, 235) 50%, #fefefe 100%);
   --text-color: #1c1c1c;
   --border-color: #b0b0b0;
   --ball-bg: #2f2f2f;
 }
 
 /* 🌤️ Light Blue — subtle sky glow using closest-side */
-.theme-blue {
-  --bg-color: radial-gradient(closest-side, #a8aa81, #f4f3b7, #caf1f4);
+:root[data-theme="theme-blue"] {
+  --bg-color: radial-gradient(closest-side, #F7E396 , #607B8F, #434E78 );
   --text-color: #0d1b2a;
   --border-color: #4b6b83;
   --ball-bg: #2e5a72;
 }
 
 /* ☀️ Light Green — soft ellipse for organic feel */
-.theme-green {
-  --bg-color: radial-gradient(ellipse at top left, #9de5c1 0%, #a8e4c7 50%, #97dac5 100%);
+:root[data-theme="theme-green"] {
+  --bg-color: radial-gradient(ellipse at top left, #387958 0%, #05311c 50%, #0c290a 100%);
   --text-color: #6d9fd5;
   --border-color: #7aa5c9;
   --ball-bg: #005f73;
 }
 
 /* 🌑 Dark Theme — farthest-corner for deep space effect */
-.theme-dark {
-  --bg-color: radial-gradient(farthest-corner at 80% 20%, #2a2a2e 0%, #121212 60%, #0a0a0a 100%);
+:root[data-theme="theme-dark"] {
+  --bg-color: radial-gradient(circle at center, #2a2a2e 0%, #121212 60%, #0a0a0a 100%);
   --text-color: #f1efec;
   --border-color: #6f6f6f;
   --ball-bg: #f1efec;
@@ -106,33 +114,33 @@ body, .theme * {
 }
 
 /* 🌸 Pinkish Theme — circle with off-center glow */
-.theme-pink {
-  --bg-color: radial-gradient(circle at 30% 30%, #e096b2 0%, #c2a6b2 50%, #e7a5c1 100%);
+:root[data-theme="theme-pink"] {
+  --bg-color: radial-gradient(circle at 30% 30%, #FF52A0 0%, #c2a6b2 50%, #e7a5c1 100%);
   --text-color: #381a1a;
   --border-color: #b26b7b;
   --ball-bg: #d45a78;
 }
 
 /* 🌌 Space Purple — ellipse for mystical look */
-.theme-purple {
-  --bg-color: radial-gradient(ellipse at bottom right, #8a64c0 0%, #5d3a8c 50%, #2b1a50 100%);
+:root[data-theme="theme-purple"] {
+  --bg-color: radial-gradient(closest-side, #6d6f4a, #85845c, #2c3838);
   --text-color: #f0e6ff;
   --border-color: #6b4c99;
   --ball-bg: #9b7ed6;
 }
 
 /* 🌅 Sunset Orange — closest-side for warm sunburst effect */
-.theme-orange {
-  --bg-color: radial-gradient(closest-side at center, #ffd4a5 0%, #ff9f6a 60%, #ff6b3a 100%);
+:root[data-theme="theme-orange"] {
+  --bg-color: radial-gradient(closest-side at center, #b6c939 0%, #d8f325 60%, #bdca65 100%);
   --text-color: #4a2c1b;
   --border-color: #b76a3f;
   --ball-bg: #d9733b;
 }
 
 /* 🌿 Mint Green — ellipse at top right for fresh, airy feel */
-.theme-mint {
-  --bg-color: radial-gradient(ellipse at top right, #d6fff5 0%, #aef0e8 50%, #7fe8db 100%);
-  --text-color: #064d40;
-  --border-color: #4ab6a0;
-  --ball-bg: #2ea191;
+:root[data-theme="theme-mint"] {
+  --bg-color: radial-gradient(circle at center, #3F9AAE 0%, #CADCAE  50%, #3F9AAE 100%);
+  --text-color: #021b16;
+  --border-color: #5c8963;
+  --ball-bg: #00fdcb;
 }

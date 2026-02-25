@@ -1,105 +1,115 @@
 "use client";
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 
 export default function GuessGamePage() {
-  const [number, setNumber] = useState(Math.floor(Math.random() * 100) + 1);
-  const [guess, setGuess] = useState("");
-  const [message, setMessage] = useState("");
-  const [attempts, setAttempts] = useState(0);
-  const [gameOver, setGameOver] = useState(false);
+  const [number, setNumber]                   = useState(() => Math.floor(Math.random() * 100) + 1);
+  const [guess, setGuess]                     = useState("");
+  const [message, setMessage]                 = useState("");
+  const [attempts, setAttempts]               = useState(0);
+  const [gameOver, setGameOver]               = useState(false);
   const [previousGuesses, setPreviousGuesses] = useState<number[]>([]);
 
   const handleGuess = () => {
     if (!guess) return;
-
     const userGuess = parseInt(guess);
 
     if (userGuess < 1 || userGuess > 100) {
-      setMessage("⚠️ Please enter a number between 1 and 100!");
+      setMessage("Enter a number between 1 and 100.");
       return;
     }
     if (previousGuesses.includes(userGuess)) {
-      setMessage(`⚠️ You already tried ${userGuess}. Try a different number.`);
+      setMessage(`Already tried ${userGuess}.`);
       setGuess("");
       return;
     }
+
     setPreviousGuesses([...previousGuesses, userGuess]);
     setAttempts((prev) => prev + 1);
 
     if (userGuess === number) {
-      setMessage(`🎉 Correct! The number was ${number}.`);
+      setMessage(`Correct! The number was ${number}.`);
       setGameOver(true);
     } else if (userGuess < number) {
-      setMessage("📉 Too low! Try again.");
+      setMessage("Too low.");
     } else {
-      setMessage("📈 Too high! Try again.");
+      setMessage("Too high.");
     }
+    setGuess("");
   };
 
   const handleReset = () => {
     setNumber(Math.floor(Math.random() * 100) + 1);
-    setGuess("");
-    setMessage("");
-    setAttempts(0);
-    setGameOver(false);
-    setPreviousGuesses([]);
+    setGuess(""); setMessage(""); setAttempts(0);
+    setGameOver(false); setPreviousGuesses([]);
   };
 
   return (
-    <div className="flex flex-col min-h-screen w-[92dvw] md:w-[20rem] text-sm p-2">
-      <div className="h-1/6 my-8">
-        <p className="font-bold text-base m-2"> 🎯 Guess The Number Game</p>
+    <div className="flex flex-col w-[92dvw] md:w-[20rem] font-jetB text-xs tracking-wide p-4 gap-4">
+
+      {/* Attempts */}
+      <div className="flex flex-col gap-0.5">
+        <span className="text-[9px] uppercase tracking-[0.2em] opacity-40">Attempts</span>
+        <span className="font-bold tabular-nums">{attempts}</span>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-        className="h-5/6 flex flex-col my-6"
-      >
-        <p className="mb-4 text-sm font-semibold">I{"'"}m thinking of a number (1–100)</p>
+      <p className="opacity-60">Guess a number between 1 and 100.</p>
 
-        {!gameOver && (
-          <>
-            <input
-              type="number"
-              value={guess}
-              onChange={(e) => setGuess(e.target.value)}
-              className="w-full p-2 rounded-md outline-none border focus:ring-2 focus:ring-blue-400 mb-3"
-              placeholder="Enter your guess"
-            />
-            <button
-              onClick={handleGuess}
-              className="w-full bg-green-500 hover:bg-green-600  px-4 py-2 rounded-md transition"
-            >
-              Guess
-            </button>
-          </>
-        )}
-
-        {message && (
-          <motion.p
-            key={message}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-4 text-sm font-medium"
-          >
-            {message}
-          </motion.p>
-        )}
-
-        <p className="mt-3 text-sm text-gray-600">Attempts: {attempts}</p>
-
-        {gameOver && (
+      {!gameOver && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="flex flex-col gap-2"
+        >
+          <input
+            type="number"
+            value={guess}
+            onChange={(e) => setGuess(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && handleGuess()}
+            className="w-full border rounded-sm px-3 py-2 bg-transparent outline-none text-xs tracking-wide placeholder:opacity-30"
+            placeholder="Your guess…"
+          />
           <button
-            onClick={handleReset}
-            className="mt-4 w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-md transition"
+            onClick={handleGuess}
+            className="!text-blue-500 w-full border rounded-sm px-4 py-2 uppercase text-[9px] tracking-[0.15em] transition-opacity hover:opacity-60"
           >
-            🔁 Play Again
+            Guess
           </button>
-        )}
-      </motion.div>
+        </motion.div>
+      )}
+
+      {message && (
+        <motion.p
+          key={message}
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="opacity-70 leading-relaxed"
+        >
+          {message}
+        </motion.p>
+      )}
+
+      {/* Previous guesses */}
+      {previousGuesses.length > 0 && (
+        <div className="flex flex-wrap gap-1.5">
+          {previousGuesses.map((g) => (
+            <span key={g} className="text-[9px] border rounded-sm px-1.5 py-0.5 opacity-40 tabular-nums">
+              {g}
+            </span>
+          ))}
+        </div>
+      )}
+
+      {gameOver && (
+        <button
+          onClick={handleReset}
+          className="w-full border rounded-sm px-4 py-2 uppercase text-[9px] tracking-[0.15em] transition-opacity hover:opacity-60"
+        >
+          Play Again
+        </button>
+      )}
+
     </div>
   );
 }
