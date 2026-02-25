@@ -1,6 +1,7 @@
 import LeetCodeStats from "@/components/LeetCodeStats";
 import { Metadata } from "next";
 import { getLeetCodeProfile , find } from "@/lib/github/leetcode";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Competitive Programming | Akash Malik",
@@ -55,7 +56,7 @@ export default async function Page() {
             </h2>
             {profile ? (
               <div className="flex items-center gap-2 mt-1 flex-wrap">
-                <a
+                <Link
                   href={`https://leetcode.com/${profile.username}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -66,7 +67,7 @@ export default async function Page() {
                   "
                 >
                   <span>↗</span> {profile.username}
-                </a>
+                </Link>
                 <span className="text-[9px] opacity-40">
                   Rank #{profile.profile?.ranking?.toLocaleString()}
                 </span>

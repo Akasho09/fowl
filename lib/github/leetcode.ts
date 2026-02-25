@@ -18,10 +18,7 @@ type LeetCodeProfile = {
 
 export async function getLeetCodeProfile(): Promise<LeetCodeProfile | null> {
   try {
-    const baseUrl =
-      process.env.NEXT_PUBLIC_BASE_URL ||
-      (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`) ||
-      "http://localhost:3000";
+    const baseUrl = `https://akash09.vercel.app` 
 
     const res = await fetch(
       `${baseUrl}/api/leetcode?username=aakashbwd`,
