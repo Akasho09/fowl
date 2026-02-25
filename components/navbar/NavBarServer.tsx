@@ -6,7 +6,7 @@ export function NavItems({ pathname }: { pathname: string }) {
     <>
       {navs.map((n, i) => (
         <Link href={n.route} key={n.route} prefetch={false}>
-          <div className="flex items-center py-2 md:py-0 md:mb-4 group text-xs">
+          <div className="flex items-center py-2 md:py-0 md:mb-4 group text-xs z-100">
             <div className={`w-5 h-5 flex-shrink-0 flex items-center justify-center
                              font-bold border mr-3 md:m-1 ${n.color}
                              transition-transform duration-200 group-hover:scale-110`}>

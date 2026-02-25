@@ -41,7 +41,7 @@ export default function NavBar() {
         id={menuId}
         aria-label="Mobile navigation"
         onClick={close}
-        className={`z-100 md:hidden fixed bottom-20 right-6 w-64 rounded-xl p-4 shadow-2xl backdrop-blur-md
+        className={`z-50 md:hidden fixed bottom-20 right-6 w-64 rounded-xl p-4 shadow-2xl backdrop-blur-md
                     transition-all duration-200 origin-bottom-right
                     ${isOpen
                       ? 'opacity-100 scale-100 pointer-events-auto'
