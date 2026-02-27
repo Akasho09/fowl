@@ -4,7 +4,7 @@ import { getLeetCodeProfile , find } from "@/lib/github/leetcode";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Competitive Programming | Akash Malik",
+  title: "Competitive Programming",
 };
 
 const otherPlatforms = [

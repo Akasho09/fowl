@@ -34,9 +34,10 @@ export default function InfoCard({ img, txt, txt2, txt3, txt4, txt5 }: InfoCardP
                 <Image
                   src={img}
                   width={180}
-                  height={180}
+                  height={257}
                   alt="Profile"
                   quality={100}
+                  priority
                   className="object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-500 scale-95 hover:scale-100"
                 />
                 {/* subtle gold corner accent */}

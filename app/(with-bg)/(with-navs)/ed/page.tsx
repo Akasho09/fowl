@@ -3,7 +3,7 @@ import { EducationCard , InfoTable} from "@/components/ed";
 import {SPIs , mainsPercentiles , advancedMarks , schoolMarks} from "./data"
 
 export const metadata: Metadata = {
-  title: "Education | Akash Malik",
+  title: "Education",
   description:
     "Academic journey including B.Tech at Jamia Millia Islamia, JEE preparation, and School education.",
 };

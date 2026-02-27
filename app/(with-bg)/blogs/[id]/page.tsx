@@ -38,18 +38,6 @@ export default function BlogPage({ params }: { params: Promise<{ id: string }> }
           </Link>
         </div>
 
-        {/* ── Cover image ── */}
-        <div className="relative w-full overflow-hidden">
-          <Image
-            src={"/blog.png"}
-            alt={blog.title}
-            width={1000}
-            height={500}
-            className="w-full h-auto object-cover opacity-80"
-            priority
-          />
-        </div>
-
         {/* ── Header ── */}
         <header className="px-8 py-10 border-b">
           <p className="uppercase opacity-40 mb-3">— Article</p>
@@ -63,8 +51,20 @@ export default function BlogPage({ params }: { params: Promise<{ id: string }> }
           </div>
         </header>
 
+        {/* ── Cover image ── */}
+        <div className="flex justify-center items-center w-full pt-4 verflow-hidden">
+          <Image
+            src={"/blog.png"}
+            alt={blog.title}
+            width={1000}
+            height={500}
+            className="h-auto object-cover opacity-80 w-2/3"
+            priority
+          />
+        </div>
+
         {/* ── Content ── */}
-        <div className="px-8 py-10 text-xs leading-relaxed space-y-5 opacity-80 max-w-3xl">
+        <div className="px-8 py-10 text-xs leading-relaxed space-y-5 opacity-80 ">
           {blog.content.map((line: string, index: number) => (
             <p key={index}>{line}</p>
           ))}

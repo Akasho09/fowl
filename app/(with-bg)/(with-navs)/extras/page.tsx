@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 };
 
 const games = [
-  { label: "Snake",        Component: SnakeGame       },
   { label: "Typing Test",  Component: TypingTest      },
-  { label: "Click Speed",  Component: ClickSpeedGame  },
   { label: "Guess Game",   Component: GuessGamePage   },
+  { label: "Click Speed",  Component: ClickSpeedGame  },
+  { label: "Snake",        Component: SnakeGame       },
 ];
 
 export default function ExtrasPage() {

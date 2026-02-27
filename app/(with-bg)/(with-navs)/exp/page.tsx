@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { panels } from "./data";
 
 export const metadata: Metadata = {
-  title: "Why Hire Me | Akash Malik",
+  title: "Why Hire Me",
 };
 
 export default function WhyHireMe() {

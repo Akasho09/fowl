@@ -7,18 +7,63 @@ export const navs = [
   { nav: "DSA",               route: "/dsa",    color: "bg-slate-300"  },
   { nav: "Experience",        route: "/exp",    color: "bg-pink-300"   },
   { nav: "Extra Curriculars", route: "/curric", color: "bg-orange-300" },
-  { nav: "Blogs",             route: "/blogs",  color: "bg-indigo-300" }, // was duplicate purple
+  { nav: "Blogs",             route: "/blogs",  color: "bg-indigo-300" }, 
   { nav: "Extras",            route: "/extras", color: "bg-teal-300"   },
 ] as const;
 
 export type NavItem = (typeof navs)[number];
 export type NavRoute = NavItem["route"];
+export type NextNav = {
+  route: string;
+  nav: string;
+};
 
-// Precompute next-nav map so Arrow does O(1) lookup instead of findIndex on every render
-export const nextNavMap = Object.fromEntries(
+const nextNavMap: Record<NavRoute, NavItem> = Object.fromEntries(
   navs.map((n, i) => [n.route, navs[(i + 1) % navs.length]])
 ) as Record<NavRoute, NavItem>;
 
+export function getNextNav(pathname: string): NextNav {
+  if (pathname.startsWith("/blogs/")) {
+    const parts = pathname.split("/");
+    const currentId = Number(parts[2]);
 
+    if (!isNaN(currentId)) {
+      return {
+        route: `/blogs/${currentId + 1}`,
+        nav: "Next Blog",
+      };
+    }
+  }
 
+  const staticMatch = navs.find(n => n.route === pathname);
+  if (staticMatch) {
+    const index = navs.indexOf(staticMatch);
+    const next = navs[(index + 1) % navs.length];
 
+    return {
+      route: next.route,
+      nav: next.nav,
+    };
+  }
+
+  // 🔹 Prefix match
+  const matched = navs.find(n =>
+    pathname.startsWith(n.route + "/")
+  );
+
+  if (matched) {
+    const index = navs.indexOf(matched);
+    const next = navs[(index + 1) % navs.length];
+
+    return {
+      route: next.route,
+      nav: next.nav,
+    };
+  }
+
+  // 🔹 Fallback
+  return {
+    route: navs[0].route,
+    nav: navs[0].nav,
+  };
+}

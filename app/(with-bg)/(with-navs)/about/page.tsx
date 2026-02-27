@@ -29,7 +29,7 @@ export default function A() {
       {/* Section 3 */}
       <div className="h-screen border-r w-[92vw] md:w-[20rem] flex">
         <InfoCard
-          img="/ak2.png"
+          img="/ak2.webp"
           txt="Performance-Driven"
           txt3="I build fast, responsive applications using React, Next.js, and TypeScript. Optimized my portfolio to 100/100 Core Web Vitals through code-splitting and rendering optimizations."
           txt2="Focused on delivering smooth UX backed by efficient system design."

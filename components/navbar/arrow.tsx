@@ -1,13 +1,16 @@
-"use client"
-import { usePathname } from 'next/navigation'
-import RightArrow from './rightArrow'
-import { navs , nextNavMap} from './navData'
+"use client";
 
-type NavRoute = typeof navs[number]["route"]
+import { usePathname } from "next/navigation";
+import RightArrow from "./rightArrow";
+import { getNextNav } from "./navData";
 
-const FALLBACK = navs[0]
 export function Arrow() {
-  const pathname = usePathname()
-  const next = nextNavMap[pathname as NavRoute] ?? FALLBACK
-  return <RightArrow linkk={next.route}>{next.nav}</RightArrow>
+  const pathname = usePathname();
+  const next = getNextNav(pathname);
+
+  return (
+    <RightArrow linkk={next.route}>
+      {next.nav}
+    </RightArrow>
+  );
 }

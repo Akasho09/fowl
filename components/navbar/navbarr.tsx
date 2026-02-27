@@ -22,7 +22,7 @@ export default function NavBar() {
         aria-controls={menuId}
         className="md:hidden fixed bottom-6 right-8 p-4 rounded-full shadow-xl
                    border backdrop-blur-sm
-                   hover:scale-110 active:scale-95 transition-all duration-200 z-50"
+                   hover:scale-110 active:scale-95 transition-all duration-200 z-30"
       >
         <Menu
           size={22}
@@ -36,7 +36,14 @@ export default function NavBar() {
         />
       </button>
 
-      {/* Mobile Nav */}
+    {/* Mobile Nav */}
+        {isOpen && (
+          <div
+            aria-hidden="true"
+            onClick={close}
+            className="fixed inset-0 md:hidden z-40"
+          />
+        )}
       <nav
         id={menuId}
         aria-label="Mobile navigation"

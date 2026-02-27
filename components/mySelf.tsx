@@ -1,7 +1,7 @@
 import SocialLinks from "./iconss";
 import Link from "next/link";
 const sidebarClass =
-  "fixed top-0 z-50 h-[100dvh] w-[8vw] md:w-16 border-r bg-[var(--bg-color)]/80 backdrop-blur-sm";
+  "fixed top-0 z-50 h-[100dvh] w-[8dvw] md:w-16 border-r bg-[var(--bg-color)]/80 backdrop-blur-sm";
 
 export default function Sidebar() {
   return (

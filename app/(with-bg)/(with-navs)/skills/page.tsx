@@ -4,7 +4,7 @@ import { LucideIcon, Code } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Skills | Akash Malik",
+  title: "Skills",
   description: "Technical skills, tools, and frameworks used by Akash Malik.",
 };
 
