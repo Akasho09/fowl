@@ -1,4 +1,3 @@
-import { Arrow } from "@/components/navbar/arrow";
 import NavBar from "@/components/navbar/navbarr";
 
 export default function WithNavLayout({

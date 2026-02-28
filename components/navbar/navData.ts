@@ -18,10 +18,6 @@ export type NextNav = {
   nav: string;
 };
 
-const nextNavMap: Record<NavRoute, NavItem> = Object.fromEntries(
-  navs.map((n, i) => [n.route, navs[(i + 1) % navs.length]])
-) as Record<NavRoute, NavItem>;
-
 export function getNextNav(pathname: string): NextNav {
   if (pathname.startsWith("/blogs/")) {
     const parts = pathname.split("/");
