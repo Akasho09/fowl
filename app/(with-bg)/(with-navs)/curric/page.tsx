@@ -33,12 +33,9 @@ const EntryCard = React.memo(function EntryCard({
 
 export default function CurriculumPage() {
   return (
-    <div className="min-h-screen flex flex-row font-jetB">
-
-      {/* Achievements */}
-      <section className="h-screen w-[92vw] md:w-[20rem] flex-shrink-0 border-r ">
-        <div className="px-6 py-10 flex flex-col gap-6 text-xs tracking-wide">
-        
+    <div className="flex overflow-x-auto md:overflow-visible font-jetB">
+      <section className="h-screen w-[92vw] md:w-[20rem] flex flex-shrink-0 border-r ">
+        <div className="h-full px-6 py-10 flex flex-col gap-6 text-xs tracking-wide">
           <header className="flex flex-col gap-1.5">
             <span>— 01</span>
             <h2 className="!text-red-700 font-bold text-sm pl-3 border-l-2 leading-snug">
@@ -51,13 +48,11 @@ export default function CurriculumPage() {
               <EntryCard key={a.title} {...a} />
             ))}
           </div>
-
         </div>
       </section>
 
-      {/* Extracurricular */}
-      <section className="h-screen w-[92vw] md:w-[20rem] flex-shrink-0 border-r ">
-        <div className="px-6 py-10 flex flex-col gap-6 text-xs tracking-wide h-full">
+      <section className="h-screen w-[92vw] md:w-[20rem] flex flex-shrink-0 border-r ">
+        <div className="h-full px-6 py-10 flex flex-col gap-6 text-xs tracking-wide h-full">
 
           <header className="flex flex-col gap-1.5">
             <span>— 02</span>
@@ -77,7 +72,6 @@ export default function CurriculumPage() {
               Cricket keeps the competitive instinct sharp.
             </p>
           </div>
-
         </div>
       </section>
 

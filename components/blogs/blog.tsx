@@ -13,9 +13,8 @@ interface BlogCardProps {
 export default function BlogCard({ id, title, description, image, author, date }: BlogCardProps) {
   return (
     <div className="
-      group relative
-      w-[92dvw] md:w-[20rem] flex-shrink-0
-      border-r
+      group relative w-[92vw] md:w-[20rem] flex-shrink-0
+      border-r h-full
       font-jetB text-xs tracking-wide
     ">
       <article className="h-[92dvh] mt-[3dvh] mb-[3dvh] mx-4 flex flex-col justify-between overflow-y-auto small-scrollbar">

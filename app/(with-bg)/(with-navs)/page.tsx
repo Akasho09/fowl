@@ -32,7 +32,7 @@ const Home = () => {
               {content.roles.map((role) => (
                 <span
                   key={role}
-                  className="text-[9px] uppercase px-2 py-0.5 rounded-sm border opacity-80"
+                  className="uppercase px-2 py-0.5 rounded-sm border opacity-80"
                 >
                   {role}
                 </span>

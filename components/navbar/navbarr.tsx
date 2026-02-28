@@ -14,7 +14,6 @@ export default function NavBar() {
 
   return (
     <>
-      {/* Floating Toggle Button */}
       <button
         onClick={toggle}
         aria-label={isOpen ? "Close navigation" : "Open navigation"}
@@ -22,7 +21,7 @@ export default function NavBar() {
         aria-controls={menuId}
         className="md:hidden fixed bottom-6 right-8 p-4 rounded-full shadow-xl
                    border backdrop-blur-sm
-                   hover:scale-110 active:scale-95 transition-all duration-200 z-30"
+                   hover:scale-110 active:scale-95 transition-all duration-200 z-40"
       >
         <Menu
           size={22}

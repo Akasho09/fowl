@@ -1,4 +1,6 @@
 import { Arrow } from "@/components/navbar/arrow";
+import ColorPaletteHamburger from "@/components/themes/colorPallete";
+import Me from "@/components/mySelf"
 
 export default function WithNavLayout({
   children,
@@ -7,6 +9,8 @@ export default function WithNavLayout({
 }) {
   return (
     <div className="relative min-h-screen z-20 theme">
+     <ColorPaletteHamburger/>
+      <Me/>
       <div className="ml-[8dvw] md:ml-[5rem] flex flex-col md:flex-row relative z-30">
         <main className="min-h-screen flex-grow z-30">
           {children}

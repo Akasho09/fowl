@@ -6,19 +6,16 @@ interface InfoCardProps {
   txt2?: string;
   txt3?: string;
   txt4?: string;
-  txt5?: string;
 }
 
-export default function InfoCard({ img, txt, txt2, txt3, txt4, txt5 }: InfoCardProps) {
+export default function InfoCard({ img, txt, txt2, txt3, txt4 }: InfoCardProps) {
   return (
     <div className="
-      group relative
-      h-screen w-[92vw] md:w-[20rem]
-      overflow-y-auto overflow-x-hidden small-scrollbar
+      w-[92vw] md:w-[20rem] mb-4
+      small-scrollbar
       font-jetB text-xs tracking-wide
-      transition-colors duration-300
     ">
-      <div className="h-full flex flex-col justify-between py-14 px-6 gap-6">
+      <div className="h-full flex flex-col justify-between py-14 px-6 ">
         <h2 className="
           font-bold text-sm leading-snug
           pl-3 border-l-2 !text-red-700
@@ -28,7 +25,7 @@ export default function InfoCard({ img, txt, txt2, txt3, txt4, txt5 }: InfoCardP
 
         {/* ── Image + txt2 ── */}
         {(img || txt2) && (
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col ">
             {img && (
               <div className="relative w-fit">
                 <Image
@@ -40,8 +37,7 @@ export default function InfoCard({ img, txt, txt2, txt3, txt4, txt5 }: InfoCardP
                   priority
                   className="object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-500 scale-95 hover:scale-100"
                 />
-                {/* subtle gold corner accent */}
-                <span className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-gold/40" />
+                <span className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2" />
               </div>
             )}
             {txt2 && (
@@ -52,8 +48,8 @@ export default function InfoCard({ img, txt, txt2, txt3, txt4, txt5 }: InfoCardP
 
         {/* ── txt3 ── */}
         {txt3 && (
-          <div className="flex flex-col gap-2">
-            <div className="w-6 h-px " />
+          <div className="flex flex-col ">
+            <div className="w-6" />
             <p className="leading-relaxed opacity-60">{txt3}</p>
           </div>
         )}
@@ -62,15 +58,9 @@ export default function InfoCard({ img, txt, txt2, txt3, txt4, txt5 }: InfoCardP
         {txt4 && (
           <p className="
             leading-relaxed italic
-            text-right pr-3 border-r-2  font-playfair
-          ">
+            text-right pr-3 border-r-2 font-playfair">
             {txt4}
           </p>
-        )}
-
-        {/* ── txt5 ── */}
-        {txt5 && (
-          <p className="leading-relaxed opacity-50 ">{txt5}</p>
         )}
 
       </div>

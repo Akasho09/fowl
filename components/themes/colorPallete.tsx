@@ -34,10 +34,6 @@ export default function ColorPaletteHamburger() {
         className="p-2.5 rounded-full border-2 shadow-lg 
                    hover:scale-110 active:scale-95
                    transition-all duration-200 backdrop-blur-sm"
-        style={{
-          background: "var(--bg-color)",
-          borderColor: "var(--border-color)",
-        }}
       >
         <Palette size={22} />
       </button>

@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Kode_Mono, Playfair_Display } from "next/font/google";
 import Me from "@/components/mySelf"
+import ColorPaletteHamburger from "@/components/themes/colorPallete";
 import "./globals.css";
 
 const kodeMono = Kode_Mono({
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     title: "Akash Ahmad Malik – Portfolio",
     url: "https://akash09.vercel.app",
     siteName: "Akash Ahmad Malik",
-    images: [{ url: "/akash.jpeg", width: 600, height: 600, alt: "Akash Ahmad Malik" }],
+    images: [{ url: "/ak3.jpeg", width: 600, height: 600, alt: "Akash Ahmad Malik" }],
     locale: "en_US",
     type: "website",
   },
@@ -75,10 +76,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 `,
           }}
         />
-
-        <Me></Me>
-        <main className="h-screen flex-grow z-20 ">
-          {children}
+        <main className="h-screen flex-grow z-30">
+        {children}
         </main>
 
         <Analytics />
