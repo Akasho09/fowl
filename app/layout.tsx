@@ -21,7 +21,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: { template: "%s | Akash", default: "Akash Ahmad Malik – Portfolio" },
+  title: { template: "%s | Akash Ahmad Malik", default: "Akash Ahmad Malik – Portfolio" },
   description: "Hi there! I'm Akash Ahmad Malik — let's build cool things together 👾",
   keywords: "...",
   authors: [{ name: "Akash Ahmad Malik" }],

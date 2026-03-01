@@ -6,7 +6,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Extras | Akash Malik",
+  title: "Extras",
 };
 
 const games = [
