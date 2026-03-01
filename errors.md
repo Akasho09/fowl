@@ -32,7 +32,6 @@ Accessing the router before the component is mounted: If you try to access the r
 
 > export function SkillsTemp({ skills, naav }: SkillsProps)
 
-
 ## check 
 preload : false 
 
