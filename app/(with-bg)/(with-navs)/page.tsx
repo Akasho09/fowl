@@ -6,7 +6,7 @@ const content = {
   roles: ["Full-Stack Engineer", "Problem Solver", "Cricket Enthusiast"],
   description: `Final-year Computer Engineering student at Jamia Millia Islamia with hands-on experience building production-grade full-stack systems. Actively seeking full-time roles where I can contribute to impactful engineering at scale.`,
   connect: "Always eager to learn, build, and solve real-world problems. Let’s connect and build something amazing! 🌱💻🏏",
-  resume: "https://drive.google.com/file/d/1mgdy4-E7hM4MnTp4I3nZqVZsp_uss8lh/view?usp=sharing",
+  resume: "https://drive.google.com/file/d/1e1osMi1BaVTZ09cahAc8q9R6rjBi7Fzu/view?usp=sharing",
 };
 
 const Home = () => {
